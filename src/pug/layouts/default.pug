@@ -1,0 +1,16 @@
+include ../blocks/head/head
+include ../blocks/nav/nav
+include ../blocks/hero/hero
+include ../blocks/skill/skill
+include ../blocks/tech/tech
+include ../blocks/experience/experience
+include ../blocks/education/education
+include ../blocks/portfolio/portfolio
+include ../blocks/footer/footer
+
+html
+  block head
+    +head()
+  body
+    .wrapper
+      block content

@@ -1,0 +1,35 @@
+mixin nav()
+  nav.nav
+    ul.nav__list
+      each val, key in [{'01': 'hero'}, {'02': 'skill'}, {'03': 'tech'}, {'04': 'experience'}, {'05': 'education'}, {'06': 'portfolio'}]
+        li.nav__item
+          a(href=`${val}`).nav__link!=key
+
+mixin language()
+  section.language
+    ul
+      li: a(href="./index.html") РУС
+      li: a(href="./en.html") ENG
+
+mixin header()
+  header.header
+    .container
+      a(href="").logo
+        img(src="#", alt="")
+      +social()
+
+mixin social()
+  ul.social
+    li.social__item
+      a(href="").social__link
+        img(src="", alt="be")
+    li.social__item
+      a(href="").social__link 
+        img(src="", alt="dr")
+    li.social__item
+      a(href="").social__link
+        img(src="", alt="in")
+    li.social__item
+      a(href="mailto:hi@mihmih.pro").social__link hi@mihmih.pro
+      
+

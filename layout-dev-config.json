@@ -1,0 +1,35 @@
+{
+  "buildDir": "./build",
+  "buildDirs": {
+    "pages": "./build",
+    "css": "./build/css",
+    "js": "./build/js",
+    "public": "./build/public"
+  },
+  "globs": {
+    "pug": "src/pug/**/*.pug",
+    "pages": "src/pug/pages/**/*.pug",
+    "stylus": "src/pug/**/*.styl",
+    "js": "src/js/*.js",
+    "publicFiles": "src/public/**/*",
+    "watch": "src/**/*"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "browsersync": {
+    "server": {
+      "baseDir": "./build"
+    },
+    "open": true
+  },
+  "extMap": {
+    "html": "html",
+    "pug": "html",
+    "js": "js",
+    "css": "css",
+    "styl": "css"
+  }
+}

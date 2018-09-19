@@ -1,0 +1,10 @@
+- var list = ['Photoshop', 'Illustrator', 'InDesign', 'After Effect', 'XD', 'Abstract', 'Skecth', 'InVision', 'HTML', 'CSS', 'CoffeScript', 'Axure', 'Principle', 'Figma', 'Paper'];
+
+mixin tech(data)
+  section.tech#tech
+    .container
+      h2.title Инструменты
+      .tech__filtre сортировать по <a href="#"> навыку использования </a>
+      ul.tech__list
+        each item in list
+          li!=item

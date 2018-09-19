@@ -1,0 +1,10 @@
+mixin portfolio(data)
+  section.portfolio#portfolio
+    .container
+      h2.title Портфолио
+      ul.portfolio__list
+        each item in ['01', '02', '03', '04', '05', '06', '07', '08', '09']
+          li.portfolio__item
+            a(href="#").portfolio__link!=item
+
+      p.portfolio__note *многие из работ еще находятся под NDA. Готов продемонстрировать и рассказать про них при личной встрече.
