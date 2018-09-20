@@ -4,7 +4,7 @@ mixin skill()
       h2.title Навыки
       .skill__row
         +skill-item('design', 'Дизайн', '91%', ['Пользовательский интерфейс ', 'Интерфейсные анимации ', 'Style guide ', 'Логотипы ', 'Иконки'])
-        +skill-item('prototype', 'Прототипы', '89%', ['Wireframe ', 'InVision ', 'Sketch ', 'Figma ', 'Axure'])
+        +skill-item('prototyping', 'Прототипы', '89%', ['Wireframe ', 'InVision ', 'Sketch ', 'Figma ', 'Axure'])
         +skill-item('research', 'Исследования', '93%', ['Пошаговый метод', 'Анализ данных', 'Тест интерфейса', 'Гипотезы', 'А/Б тестирование'])
         +skill-item('other', 'Другое', '74%', ['Управление командой', 'Jira/Trello/YouTrack', 'Scrum/Kanban', 'Академический рисунок', 'HTML/CSS', 'JS (CoffeeScript)'])
 
@@ -13,8 +13,8 @@ mixin skill()
 mixin skill-item(img, title, progress, list)
   .skill__block
     .skill__icon
-      img(src="#", alt="")
-    .skill__row
+      img(src=`./public/img/${img}.svg`, alt="")
+    .skill__top
       h3.skill__title!=title
       .skill__progress!=progress
     ul.skill__list

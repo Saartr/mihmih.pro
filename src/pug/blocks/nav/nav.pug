@@ -7,28 +7,30 @@ mixin nav()
 
 mixin language()
   section.language
-    ul
-      li: a(href="./index.html") РУС
-      li: a(href="./en.html") ENG
+    .container
+      ul.language__list
+        li: a(href="./index.html") РУС
+        li: a(href="./en.html") ENG
 
 mixin header()
   header.header
     .container
-      a(href="").logo
-        img(src="#", alt="")
-      +social()
+      .header__row
+        a(href="").logo
+          include cv_logo.svg
+        +social()
 
 mixin social()
   ul.social
     li.social__item
       a(href="").social__link
-        img(src="", alt="be")
+        include behance.svg
     li.social__item
       a(href="").social__link 
-        img(src="", alt="dr")
+        include dribbble.svg
     li.social__item
       a(href="").social__link
-        img(src="", alt="in")
+        include linkedin.svg
     li.social__item
       a(href="mailto:hi@mihmih.pro").social__link hi@mihmih.pro
       

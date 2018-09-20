@@ -1,19 +1,15 @@
-### Шаблон для верстки
-
-Набор gulp задач на смену TARS.
-
-
-Возможности (? - в планах)
-- html, pug
-- ES6, presets: "env", "react"?,
-- сборка бандлов, разделение на бандлы и standalone? 
-- public files
-- serve и livereload через Browsersync
-- css?, stylus?
-
 ```
+git pull
 yarn start
 ```
 
+```
+git status
+git add .
+git commit -am 'COMMIT NAME'
+git push
+```
+
 #### Конфигурация
-Конфиг пробрасывается в задачи из ```layout-dev-config.json```
+
+Конфиг пробрасывается в задачи из `layout-dev-config.json`
