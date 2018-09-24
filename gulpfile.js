@@ -35,7 +35,11 @@ gulp.task("pages", () => {
 
 gulp.task("stylus", () => {
   gulp
-    .src([config.globs.stylus, `!${config.globs.publicFiles}`])
+    .src([
+      config.globs.stylus,
+      `!${config.globs.substylus}`,
+      `!${config.globs.publicFiles}`
+    ])
     .pipe(plumber())
     .pipe(stylus())
     .pipe(concat("styles.css"))

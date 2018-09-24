@@ -1,13 +1,7 @@
-.social
-  display flex
-  margin-left auto
+@import '../_const';
 
-.social__item
-  display block
-
-  a
-    display block
-
+.language
+  background: white
 
 .language__list
   margin: 0
@@ -27,5 +21,18 @@
     text-transform uppercase
     font-weight 700
     border-bottom 2px solid #000
+
+
+.logo
+  @media max-phone
+    display none
+
 .header__row
-  display flex
+  padding: 2rem 0
+  box-sizing border-box
+
+  @media max-phone
+    text-align center
+
+  @media phone
+    display flex

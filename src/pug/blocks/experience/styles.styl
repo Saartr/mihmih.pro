@@ -1,16 +1,44 @@
+@import '../_const';
+
 .experience
   padding 2rem 0
 
+.experience__list
+  padding 0
+  list-style none
+
 .experience__item
   padding 2rem 0
+  
 .experience__body
-  display flex
+  @media tablet 
+    display flex
 
 .experience__text
-  width: 60%
+  @media tablet 
+    width: 60%
 
 .experience__title
   font-size 32px
+  font-family: 'GothamPro';
+  margin 0 0 0.5rem
 
 .experience__position
-  font-size 24px
+  font-size 18px
+  font-weight normal
+  margin 0
+
+  @media tablet 
+    font-size 24px
+
+.experience__data
+  @media max-laptop
+    display none 
+
+.experience__link
+  display inline-block
+  text-decoration none
+  font-size 18px
+  font-weight normal
+  color #9B9B9B
+  padding 0.5rem 0

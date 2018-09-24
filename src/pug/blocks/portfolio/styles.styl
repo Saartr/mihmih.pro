@@ -1,21 +1,42 @@
+@import '../_const';
+
 .portfolio
   padding 2rem 0
 
 
 .portfolio__list
-  display flex
-  flex-wrap: wrap
   list-style: none
   padding 0
+  @media phone 
+    display flex
+    flex-wrap: wrap
 
 .portfolio__item
-  width 33.33%
-  padding 0.5rem 0.5rem
-  box-sizing border-box
-
+  @media phone 
+    width 50%
+    padding 0.5rem 0.5rem
+    box-sizing border-box
+  @media tablet 
+    width 33.33%
 
 .portfolio__link
+  position: relative
   display block
   min-height: 100px
-  background: #ccc
   color: currentColor
+
+.portfolio__front
+  width 100%
+  min-height: 100px
+  background: #ccc
+  @media tablet 
+    position absolute
+    z-index 1
+
+.portfolio__back
+  width 100%
+  min-height: 100px
+
+  @media tablet 
+    position absolute
+    top: 50%

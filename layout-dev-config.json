@@ -10,14 +10,13 @@
     "pug": "src/pug/**/*.pug",
     "pages": "src/pug/pages/**/*.pug",
     "stylus": "src/pug/**/*.styl",
+    "substylus": "src/pug/pages/**/_*.styl",
     "js": "src/js/*.js",
     "publicFiles": "src/public/**/*",
     "watch": "src/**/*"
   },
   "babel": {
-    "presets": [
-      "env"
-    ]
+    "presets": ["env"]
   },
   "browsersync": {
     "server": {

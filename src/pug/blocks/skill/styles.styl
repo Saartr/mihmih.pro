@@ -1,21 +1,33 @@
+@import '../_const';
+
 .skill
   padding 2rem 0
 
 .skill__row
   display flex
+  flex-wrap: wrap
   margin: 0 -0.5rem 
 
 .skill__block
-  flex: 1 0 0
+  width 100%
   padding: 0.5rem 0.5rem
   box-sizing border-box
 
+  @media phone 
+    width 50%
+
+  @media laptop 
+    width 25%
+
 .skill__top
   display flex
+  border-bottom: 2px solid #DEDEDE;
+  padding: 0.5rem 0
 
 .skill__title
   margin 0
   font-size 24px
+  font-family: 'GothamPro';
 
 .skill__progress
   margin-left auto
