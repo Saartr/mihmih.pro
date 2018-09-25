@@ -1,6 +1,5 @@
-module.exports = (function () {
-  $(document).ready(function () {
-
+export default {
+  onSwitchLang() {
     const langItem = $('.language__list');
 
     switch (location.pathname){
@@ -14,6 +13,5 @@ module.exports = (function () {
         break;
 
     }
-
-  })
-})();
+  }
+}
