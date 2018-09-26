@@ -10,15 +10,24 @@
 .social__item
   display inline-block
   vertical-align: middle
-  padding: 0 0.75rem
+  margin: 0 0.75rem
+  transition: 0.15s ease-out
 
   &:last-of-type
-    paddong: 0 0 0 0.75rem
+    margin: 0 0 0 0.75rem
 
   a
     display inline-block
     color currentColor
     text-decoration none
+    line-height: 26px
+
+
+  &:hover
+    background: dark
+    color: #fff
+    svg
+      fill: #fff
 
 .social__mail
   @media max-phone

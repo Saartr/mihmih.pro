@@ -14,6 +14,11 @@
     line-height: 28px
     margin: 0 0 2rem 0
 
+  &__number
+    display: none
+
+.counter
+  display: none
 
 .hero__block
   box-sizing border-box
@@ -102,6 +107,7 @@
     right: 20%
     bottom: 2rem
     z-index: 3
+    cursor: pointer
 
     svg
       width: 28px
@@ -122,6 +128,28 @@
     &__text
       font-size: 24px
       line-height: 36px
+      margin: 0 0 3rem 0
+
+  .hero__block
+    padding-left: 7rem
+
+  .hero__number
+    display: block
+    position: absolute
+    left: 3.5rem
+    top: 1rem
+    font-size: 32px
+    color: dark
+    font-weight: bold
+
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: -2rem
+      width: 100%
+      height: 4px
+      background: dark
 
   .hero__action
     flex-direction: row
@@ -132,6 +160,48 @@
 
   .hero__image-container
     position: absolute
-    right: 5%
+    right: 0
     bottom: 0
-    width: 60%
+    width: 50%
+
+  .scroll-block
+    right: 18%
+
+  .counter
+    display: flex
+    flex-direction: column
+    position: absolute
+    right: 0
+    top: 50%
+    transform: translate(0, -50%)
+
+    .counter__item
+      padding-right: 1.5rem
+      position: relative
+      color: gray
+      margin: 0.5rem 0
+      font-size: 24px
+      line-height: 28px
+      cursor: pointer
+      transition: 0.15s ease-out
+
+      &:after
+        content: ''
+        position: absolute
+        right: 0
+        top: 0
+        height: 100%
+        width: 2px
+        background: gray
+        transition: 0.15s ease-out
+
+      &:hover
+        color: dark
+
+        &:after
+          width: 4px
+          background: dark
+
+      &.active
+        font-size: 32px
+
