@@ -2,25 +2,136 @@
 
 .hero
   background: linear-gradient(245.33deg, #EBEBEB 0%, #F6F6F6 48.07%, #E3E3E3 100%)
+  color: dark
+
+  &__title
+    font-size: 32px
+    padding: 0
+    margin: 0 0 1rem 0
+
+  &__text
+    font-size: 16px
+    line-height: 28px
+    margin: 0 0 2rem 0
+
 
 .hero__block
-  padding: 0 0 2rem
   box-sizing border-box
 
-  .title
-    font-size: 48px;
-
-
-.hero__download 
+.hero__download
   font-family: 'GothamPro';
   text-decoration none
+  text-align: center
+  margin: 0 auto
   border-bottom  2px solid  currentColor
   display inline-block
   padding 0.25rem 0
   color: currentColor
+  transition: 0.25s ease-out
 
+  &:hover
+    background: dark
+    color: #fff
+    border-bottom: 2px solid transparent
 
 .hero__action
-  padding 1rem 0
+  display: inline-flex
+  flex-direction: column
+  align-items: center
+  width: 100%
+
   .button
-    margin-right 1rem
+    width: 100%
+    margin-bottom: 1.5rem
+    transition: 0.25s ease-out
+    
+    &:hover
+      background: dark
+      color: #fff
+      border: 4px solid dark
+
+.hero__image-container
+  margin-top: 3rem
+  position: relative
+
+  .hero__image
+    max-width: 100%
+    position: relative
+    width: 100%
+    z-index: 1
+
+  .hero__oval
+    position: absolute
+    bottom: 0
+    left: 1.5rem
+    max-width: 90%
+    width: 100%
+    z-index: 0
+
+.scroll-block
+  display: none
+
+@media tablet
+  .hero__block
+    width: 50%
+    padding-bottom: 200px
+    position: relative
+    z-index: 2
+
+  .hero__action
+    align-items: flex-start
+
+    .button
+      width: auto
+  
+    .hero__download
+      text-align: left
+      margin-left: 0
+
+
+  .hero__image-container
+    position: absolute
+    right: 0
+    bottom: 0
+    width: 60%
+
+  .scroll-block
+    display: flex
+    align-items: center
+    position: absolute
+    right: 20%
+    bottom: 2rem
+    z-index: 3
+
+    svg
+      width: 28px
+      height: 45px
+      margin-right: 1rem
+
+    &__label
+      color: #fff
+      font-size: 24px
+      font-weight: bold
+
+@media laptop
+  .hero
+    &__title
+      font-size: 48px
+      margin-bottom: 2rem
+
+    &__text
+      font-size: 24px
+      line-height: 36px
+
+  .hero__action
+    flex-direction: row
+    align-items: center
+
+    .button
+      margin: 0 2rem 0 0
+
+  .hero__image-container
+    position: absolute
+    right: 5%
+    bottom: 0
+    width: 60%
