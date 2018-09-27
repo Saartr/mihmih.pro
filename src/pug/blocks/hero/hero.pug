@@ -5,8 +5,8 @@ mixin hero(en)
   section.hero#hero
     +language()
     +header()
-    .container
-      .hero__number 01
+    .container.flex_full
+      span.main__number 01
       .hero__block
         -if(en)
           h2.hero__title Mikhail Skvortsov

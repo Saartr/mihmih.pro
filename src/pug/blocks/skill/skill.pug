@@ -1,7 +1,9 @@
 mixin skill()
   section.skill#skill
     .container
-      h2.title Навыки
+      .skill__header
+        .main__number 02
+        h2.title Навыки
       .skill__row
         +skill-item('design', 'Дизайн', '91%', ['Пользовательский интерфейс ', 'Интерфейсные анимации ', 'Style guide ', 'Логотипы ', 'Иконки'])
         +skill-item('prototyping', 'Прототипы', '89%', ['Wireframe ', 'InVision ', 'Sketch ', 'Figma ', 'Axure'])

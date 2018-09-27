@@ -3,6 +3,12 @@
 .skill
   padding 2rem 0
 
+  .title
+    margin-bottom: 1.5rem
+
+  .main__number
+    display: none
+
 .skill__row
   display flex
   flex-wrap: wrap
@@ -15,14 +21,31 @@
 
   @media phone 
     width 50%
+    margin: 1rem 0
+
+    &:nth-child(odd)
+      padding-right: 2.5rem
+    &:nth-child(even)
+      padding-left: 2.5rem
+
 
   @media laptop 
     width 25%
+
+    &:nth-child(odd)
+      padding-right: 0
+    &:nth-child(even)
+      padding-left: 0
+
+    &:not(:last-of-type)
+      padding-right: 4rem
 
 .skill__top
   display flex
   border-bottom: 2px solid #DEDEDE;
   padding: 0.5rem 0
+  align-items: center
+  justify-content: space-between
 
 .skill__title
   margin 0
@@ -31,13 +54,44 @@
 
 .skill__progress
   margin-left auto
+  font-size: 12px
+  color: dark
 
 .skill__list
   list-style none
   padding 0
+
+  li
+    line-height: 32px
+    font-size: 16px
+    color: dark
+
 
 
 .skill__icon
   margin-bottom 1rem
   img 
     display block
+
+.skill__note
+  color: dark
+  font-size: 14px
+  line-height: 16px
+
+@media laptop
+  .skill
+
+    .skill__header
+      display: inline-flex
+      position: relative
+      margin-bottom: 5rem
+
+      .title
+        margin: 0
+        padding-left: 5rem
+
+      .main__number
+        display: block !important
+        position: absolute
+        left: 0
+        top: 0.5rem

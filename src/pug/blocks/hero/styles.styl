@@ -1,5 +1,24 @@
 @import '../_const';
 
+.main__number
+  display: block
+  position: relative
+  font-size: 32px
+  color: dark
+  font-weight: bold
+
+  &:after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: -2rem
+    width: 100%
+    height: 4px
+    background: dark
+
+.flex_full
+  flex: 1
+
 .hero
   background: linear-gradient(245.33deg, #EBEBEB 0%, #F6F6F6 48.07%, #E3E3E3 100%)
   color: dark
@@ -14,7 +33,7 @@
     line-height: 28px
     margin: 0 0 2rem 0
 
-  &__number
+  .main__number
     display: none
 
 .counter
@@ -78,7 +97,7 @@
 
 @media tablet
   .hero__block
-    width: 50%
+    width: 60%
     padding-bottom: 200px
     position: relative
     z-index: 2
@@ -120,7 +139,11 @@
       font-weight: bold
 
 @media laptop
+
   .hero
+    min-height: 100vh
+    display: flex
+    flex-direction: column
     &__title
       font-size: 48px
       margin-bottom: 2rem
@@ -130,26 +153,27 @@
       line-height: 36px
       margin: 0 0 3rem 0
 
-  .hero__block
-    padding-left: 7rem
-
-  .hero__number
-    display: block
-    position: absolute
-    left: 3.5rem
-    top: 1rem
-    font-size: 32px
-    color: dark
-    font-weight: bold
-
-    &:after
-      content: ''
+    .main__number
+      display: block !important
       position: absolute
-      left: 0
-      bottom: -2rem
-      width: 100%
-      height: 4px
-      background: dark
+      left: 1.5rem
+      top: 1rem
+      font-size: 32px
+      color: dark
+      font-weight: bold
+
+      &:after
+        content: ''
+        position: absolute
+        left: 0
+        bottom: -2rem
+        width: 100%
+        height: 4px
+        background: dark
+
+  .hero__block
+    padding-left: 5rem
+    padding-bottom: 0
 
   .hero__action
     flex-direction: row
@@ -162,7 +186,7 @@
     position: absolute
     right: 0
     bottom: 0
-    width: 50%
+    width: 588px
 
   .scroll-block
     right: 18%
