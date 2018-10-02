@@ -3,25 +3,52 @@
 .tech
   padding 2rem 0
 
+  .tech__header
+
+    .title
+      margin-bottom: 0 0 1rem 0
+
+    .main__number
+      display: none
+
+  @media tablet
+    padding: 3rem 0
+
 .tech__list
   display flex
   flex-wrap: wrap
   list-style none
   padding 0
-  margin 0 -0.5rem
+  margin 0 -0.75rem
   font-size 18px
   font-family: 'GothamPro';
 
   li
-    padding 0.5rem 0.5rem
+    padding 0.5rem 0.75rem
     box-sizing border-box
     font-weight 700
+    margin-bottom: 0.5rem
   
   @media tablet 
     font-size 24px
+    margin 0 -1.25rem
+
+    li
+      padding 0.5rem 1.25rem
+      margin-bottom: 1.5rem
+
+  @media laptop
+    padding-left: 5rem
 
 .tech__filtre
   font-size 21px
+  margin-bottom: 2rem
+
+  @media tablet
+    margin-bottom: 2rem
+
+  @media laptop
+    padding-left: 5rem
 
 .tech__link
   font-weight bold
@@ -30,3 +57,26 @@
   padding 0.25rem 0
   color currentColor
   text-decoration none
+  transition: 0.25s ease-out
+
+  &:hover
+    background: dark
+    color: #fff
+    border-bottom 2px solid dark
+
+@media laptop
+  .tech
+
+    .tech__header
+      display: inline-flex
+      position: relative
+      margin-bottom: 5rem
+
+      .title
+        padding-left: 5rem
+
+      .main__number
+        display: block !important
+        position: absolute
+        left: 0
+        top: 0.5rem

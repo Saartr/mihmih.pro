@@ -3,18 +3,74 @@
 .education
   padding 2rem 0
 
+  .education__header
+
+    .title
+      margin-bottom: 1.5rem
+
+    .main__number
+      display: none
+
+  @media tablet
+    padding: 3rem 0
+
 .education__top
-  @media laptop
+  @media tablet
     display flex
+    margin-bottom: 1.5rem
 
 .education__title
-  @media laptop
-    padding-left 2rem
-    box-sizing border-box
-  h3
-    margin 0
 
+  h3
+    margin 0 0 1rem 0
+    font-size: 24px
+    line-height: 34px
+
+  p
+    font-size: 16px
+    line-height: 17px
+    color: #DEDEDE
+    margin: 0 0 1.5rem 0
+    font-weight: 600
+
+  @media tablet
+    padding-left 1.5rem
+    box-sizing border-box
+
+    h3
+      margin: 0
+      font-size: 32px
+
+    p
+      margin: 0
+
+.education__text
+  font-size: 16px
+  line-height: 28px
+  color dark
 
 .education__icon      
-  @media max-laptop
-    display none 
+  @media max-tablet
+    display none
+
+
+@media laptop
+  .education
+
+    .education__header
+      display: inline-flex
+      position: relative
+      margin-bottom: 5rem
+
+      .title
+        margin: 0
+        padding-left: 5rem
+
+      .main__number
+        display: block !important
+        position: absolute
+        left: 0
+        top: 0.5rem
+
+    .education__block
+      padding-left: 5rem

@@ -1,2 +1,95 @@
+@import '../_const';
+
 .footer
-  padding 2rem 0
+  padding 2rem 0 0 0
+
+  .footer__header
+
+    .main__number
+      display: none
+
+    .title
+      display: none
+
+  .subtitle
+    font-size: 32px
+    line-height: 45px
+    color dark
+    margin: 0 0 1rem 0
+
+  .questions
+    font-size: 16px
+    line-height: 28px
+    color dark
+    margin: 0 0 1rem 0
+
+  .telegram
+    font-weight: bold
+    font-size: 16px
+    padding-bottom: 2rem
+
+@media tablet
+  .footer
+    padding: 0
+    .footer__bg
+      padding 6rem 1.5rem 0 1.5rem
+      background: url('/public/img/hero-photo.png') no-repeat bottom -2rem right
+      -webkit-background-size: 493px auto
+      background-size: 493px auto
+
+    .footer__header
+
+      .title
+        display: block
+        margin: 0 0 7rem 0
+
+    .telegram
+      padding-bottom: 5.5rem
+
+@media laptop
+  .footer
+
+    .footer__bg
+      padding 10rem 1.5rem 0 1.5rem
+
+    .footer__header
+      display: inline-flex
+      position: relative
+      margin-bottom: 5rem
+
+      .title
+        margin: 0
+        padding-left: 5rem
+
+      .main__number
+        display: block !important
+        position: absolute
+        left: 0
+        top: 0.5rem
+        color: #fff
+        cursor: pointer
+        width: 42px
+        height: 36px
+          
+        &:before
+          content: ''
+          position: absolute
+          width: 30px
+          height: 32px
+          left: 6px
+          top: 0
+          background: url('/public/img/arrowTop.svg') no-repeat center center
+
+    .subtitle
+      padding-left: 5rem
+
+    .questions
+      padding-left: 5rem
+
+    .telegram
+      padding-left: 5rem
+
+      b:hover
+        cursor: pointer
+        background: dark
+        color: #fff

@@ -1,12 +1,29 @@
+mixin item(img, title, text, src, site)
+  .portfolio__item
+    img(src=img).portfolio__img
+    .portfolio__front
+      h3.portfolio__title!=title
+      p.portfolio__text!=text
+      .portfolio__link Подробнее на&nbsp;
+        a(href=src)!=site
+
+
 mixin portfolio(data)
   section.portfolio#portfolio
     .container
-      h2.title Портфолио
-      ul.portfolio__list
-        each item in ['01', '02', '03', '04', '05', '06', '07', '08', '09']
-          li.portfolio__item
-            a(href="#").portfolio__link
-              .portfolio__front!=item
-              .portfolio__back back
+      .portfolio__header
+        .main__number 06
+        h2.title Портфолио
+      .portfolio__list
+        +item('/public/img/1.png', 'Title', 'At the heart of the work of any credit organization is risk management...', '#', 'devim.com')
+        +item('/public/img/2.png', 'Title', 'At the heart of the work of any credit organization is risk management...', '#', 'devim.com')
+        +item('/public/img/3.png', 'Title', 'At the heart of the work of any credit organization is risk management...', '#', 'devim.com')
+        +item('/public/img/4.png', 'Title', 'At the heart of the work of any credit organization is risk management...', '#', 'devim.com')
+        +item('/public/img/5.png', 'Title', 'At the heart of the work of any credit organization is risk management...', '#', 'devim.com')
+        +item('/public/img/6.png', 'Title', 'At the heart of the work of any credit organization is risk management...', '#', 'devim.com')
+        +item('/public/img/7.png', 'Title', 'At the heart of the work of any credit organization is risk management...', '#', 'devim.com')
+        +item('/public/img/8.png', 'Title', 'At the heart of the work of any credit organization is risk management...', '#', 'devim.com')
+        +item('/public/img/9.png', 'Title', 'At the heart of the work of any credit organization is risk management...', '#', 'devim.com')
+
 
       p.portfolio__note *многие из работ еще находятся под NDA. Готов продемонстрировать и рассказать про них при личной встрече.

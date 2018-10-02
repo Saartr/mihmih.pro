@@ -9,10 +9,16 @@
   .main__number
     display: none
 
+  @media tablet
+    padding: 3rem 0
+
 .skill__row
   display flex
   flex-wrap: wrap
-  margin: 0 -0.5rem 
+  margin: 0 -0.5rem
+
+  @media laptop
+    justify-content: space-between
 
 .skill__block
   width 100%
@@ -30,15 +36,12 @@
 
 
   @media laptop 
-    width 25%
+    width 20%
 
     &:nth-child(odd)
       padding-right: 0
     &:nth-child(even)
       padding-left: 0
-
-    &:not(:last-of-type)
-      padding-right: 4rem
 
 .skill__top
   display flex
