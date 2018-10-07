@@ -1,16 +1,30 @@
-mixin skill()
+mixin skill(en)
   section.skill#skill
     .container
       .skill__header
         .main__number 02
-        h2.title Навыки
-      .skill__row
-        +skill-item('design', 'Дизайн', '91%', ['Пользовательский интерфейс ', 'Интерфейсные анимации ', 'Style guide ', 'Логотипы ', 'Иконки'])
-        +skill-item('prototyping', 'Прототипы', '89%', ['Wireframe ', 'InVision ', 'Sketch ', 'Figma ', 'Axure'])
-        +skill-item('research', 'Исследования', '93%', ['Пошаговый метод', 'Анализ данных', 'Тест интерфейса', 'Гипотезы', 'А/Б тестирование'])
-        +skill-item('other', 'Другое', '74%', ['Управление командой', 'Jira/Trello/YouTrack', 'Scrum/Kanban', 'Академический рисунок', 'HTML/CSS', 'JS (CoffeeScript)'])
+        -if(en)
+          h2.title Skill Set
+        -else
+          h2.title Навыки
+      -if(en)
+        .skill__row
+          +skill-item('design', 'Design', '91%', ['User Interface ', 'Motion Design ', 'Style guide ', 'Logotype ', 'Icon'])
+          +skill-item('prototyping', 'Prototype', '89%', ['Wireframe ', 'InVision ', 'Sketch ', 'Figma ', 'Axure'])
+          +skill-item('research', 'Research', '93%', ['Cognitive walkthrough ', 'Data analysis', 'Usability test', 'Experiments', 'A/B testing'])
+          +skill-item('other', 'Other', '74%', ['Team Management', 'Jira/Trello/YouTrack', 'Scrum/Kanban', 'HTML/CSS', 'JS (CoffeeScript)'])
 
-      .skill__note *все проценты взяты из моего собственного субъективного представления
+      -else
+        .skill__row
+          +skill-item('design', 'Дизайн', '91%', ['Пользовательский интерфейс ', 'Интерфейсные анимации ', 'Style guide ', 'Логотипы ', 'Иконки'])
+          +skill-item('prototyping', 'Прототипы', '89%', ['Wireframe ', 'InVision ', 'Sketch ', 'Figma ', 'Axure'])
+          +skill-item('research', 'Исследования', '93%', ['Пошаговый метод', 'Анализ данных', 'Тест интерфейса', 'Гипотезы', 'А/Б тестирование'])
+          +skill-item('other', 'Другое', '74%', ['Управление командой', 'Jira/Trello/YouTrack', 'Scrum/Kanban', 'Академический рисунок', 'HTML/CSS', 'JS (CoffeeScript)'])
+      -if(en)
+        .skill__note *all percentages are taken from my own subjective presentation
+
+      -else
+        .skill__note *все проценты взяты из моего собственного субъективного представления
         
 mixin skill-item(img, title, progress, list)
   .skill__block

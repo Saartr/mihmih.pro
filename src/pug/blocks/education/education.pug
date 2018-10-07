@@ -1,14 +1,24 @@
-mixin education(data)
+mixin education(en)
   section.education#education
     .container
       .education__header
         .main__number 05
-        h2.title Образование
+        -if(en)
+          h2.title Education
+        -else
+          h2.title Образование
       .education__block
         .education__top
           .education__icon      
             include logo_vert_en.svg
           .education__title
-            h3 Политехнических университет  (СПбГПУ)
-            p 2009 - 2013 год
-        .education__text Тот редкий случай, когда полученное образование стало делом жизни. Закончил Политех по специальности “Прикладная информатика в дизайне”. За время учебы дополнительно освоил академический рисунок, цветоведение и получил самые разнообразные навыки: от верстки и веб-аналитики до психологии, что существенно помогает мне в работе. 
+            -if(en)
+              h3 St.Petersburg Polytechnical University
+              p 2009 - 2013 years
+            -else
+              h3 Политехнических университет  (СПбГПУ)
+              p 2009 - 2013 год
+        -if(en)
+          .education__text Engineer’s degree, Applied informatics in design. Got a qualification of a Web Design and Computer Graphics Specialist. Got an additional qualification of a Academical painting and Color science. Completed student's practice in the game development studying design interfaces in computer games.
+        -else
+          .education__text Тот редкий случай, когда полученное образование стало делом жизни. Закончил Политех по специальности “Прикладная информатика в дизайне”. За время учебы дополнительно освоил академический рисунок, цветоведение и получил самые разнообразные навыки: от верстки и веб-аналитики до психологии, что существенно помогает мне в работе.

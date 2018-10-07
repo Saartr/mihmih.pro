@@ -2,6 +2,7 @@
 
 .language
   background: white
+  font-family: 'GothamPro', sans-serif
 
 .language__list
   margin: 0
@@ -15,12 +16,15 @@
   a
     position: relative
     display block
-    padding  1rem 0 0.5rem 0
+    padding  14px 0 0.5rem 0
     box-sizing border-box
     text-decoration none
     color: currentColor
     text-transform uppercase
     font-weight 700
+
+    @media laptop
+      padding  38px 0 0.5rem 0
 
     &:after
       content: ''

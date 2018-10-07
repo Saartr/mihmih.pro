@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn start
+  C:\Program Files\nodejs\node.exe C:\Users\Lw13p\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;P:\ORD\ORD_DLL;P:\ORD\DEVELOP\ALASKA\XPPW32\BIN;P:\ORD\DEVELOP\ALASKA\XPPW32\LIB;P:\ORD\DEVELOP\scite;C:\ORD\ORD_DLL;C:\ORD\DEVELOP\ALASKA\XPPW32\BIN;C:\ORD\DEVELOP\ALASKA\XPPW32\LIB;C:\ORD\DEVELOP\scite;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files (x86)\Alaska Software\xpp20\bin;C:\Program Files (x86)\Alaska Software\xpp20\lib;C:\Program Files (x86)\Alaska Software\workbench20;C:\Users\Lw13p\AppData\Local\Microsoft\WindowsApps;C:\Users\Lw13p\AppData\Roaming\npm
 
 Yarn version: 
   1.5.1
@@ -11,7 +11,7 @@ Node version:
   8.11.3
 
 Platform: 
-  darwin x64
+  win32 x64
 
 npm manifest: 
   {
@@ -41,6 +41,7 @@ npm manifest:
       "gulp-stylus": "^2.7.0",
       "gulp-tap": "^1.0.1",
       "gulp-util": "^3.0.8",
+      "jquery": "^3.3.1",
       "vinyl-buffer": "^1.0.1"
     }
   }
@@ -2855,6 +2856,10 @@ Lockfile:
     version "0.1.2"
     resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   
+  jquery@^3.3.1:
+    version "3.3.1"
+    resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+  
   js-stringify@^1.0.1:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/js-stringify/-/js-stringify-1.0.2.tgz#1736fddfd9724f28a3682adc6230ae7e4e9679db"
@@ -5046,14 +5051,14 @@ Lockfile:
 Trace: 
   Error: Command failed.
   Exit code: 1
-  Command: sh
-  Arguments: -c gulp
-  Directory: /Users/maksimzaytsev/WebstormProjects/mihmih.pro
+  Command: C:\WINDOWS\system32\cmd.exe
+  Arguments: /d /s /c gulp
+  Directory: C:\Users\Lw13p\WebstormProjects\mihmih.pro
   Output:
   
-      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at ProcessTermError.MessageError (C:\Users\Lw13p\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Users\Lw13p\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Users\Lw13p\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
       at emitTwo (events.js:126:13)
       at ChildProcess.emit (events.js:214:7)
       at maybeClose (internal/child_process.js:925:16)

@@ -16,6 +16,7 @@
     line-height: 45px
     color dark
     margin: 0 0 1rem 0
+    font-family: 'GothamPro', sans-serif
 
   .questions
     font-size: 16px
@@ -27,6 +28,21 @@
     font-weight: bold
     font-size: 16px
     padding-bottom: 2rem
+    font-family: 'GothamPro', sans-serif
+    transition: 0.15s ease-out
+
+    b
+      padding-left: 0.2rem
+      padding-right: 0.2rem
+      padding-bottom: 0.25rem
+      svg, path
+        transition: 0.15s ease-out
+        margin-bottom: -0.25rem
+        margin-right: 0.2rem
+
+      &:hover
+        svg, path
+          fill: #fff
 
 @media tablet
   .footer

@@ -1,12 +1,18 @@
 - var list = ['Photoshop', 'Illustrator', 'InDesign', 'After Effect', 'XD', 'Abstract', 'Skecth', 'InVision', 'HTML', 'CSS', 'CoffeScript', 'Axure', 'Principle', 'Figma', 'Paper'];
 
-mixin tech(data)
+mixin tech(en)
   section.tech#tech
     .container
       .tech__header
         .main__number 03
-        h2.title Инструменты
-      .tech__filtre сортировать по <a href="#" class="tech__link"> навыку использования </a>
+        -if(en)
+          h2.title Technical Expertise
+        -else
+          h2.title Инструменты
+      -if(en)
+        .tech__filtre sort by <a href="#" class="tech__link"> level skill/alphabetically </a>
+      -else
+        .tech__filtre сортировать по <a href="#" class="tech__link"> навыку использования </a>
       ul.tech__list
         each item in list
           li!=item
