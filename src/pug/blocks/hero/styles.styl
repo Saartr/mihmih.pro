@@ -61,7 +61,11 @@
 
 .counter__item.is-selected
   font-weight: bold
-  color: #000 !important
+  font-size: 32px !important
+  color: #2C3134 !important
+  &:after
+    width: 4px !important
+    background: dark !important
 
 .hero__block
   box-sizing border-box
@@ -225,6 +229,7 @@
     flex-direction: column
     position: fixed
     right: 0
+    align-items: flex-end;
     top: 33%
 
     .counter__item
@@ -255,8 +260,6 @@
           width: 4px
           background: dark
 
-      &.active
-        font-size: 32px
 
 @media (min-width: 1300px)
   #section2, #section3, #section4, #section5, #section6, #section7
