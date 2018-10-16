@@ -12,6 +12,10 @@ export default {
         langItem.find("li:last-of-type a").addClass('activeLang');
         break;
 
+      default:
+        langItem.find("li:first-of-type a").addClass('activeLang');
+        break;
+
     }
   }
 }

@@ -2,10 +2,10 @@ mixin counter(value)
   .counter__item= value
 
 mixin hero(en)
-  section.hero#hero
+  section.hero#section1
     +language()
     +header()
-    .container.flex_full
+    .container.flex_full.animated.fadeInUp
       span.main__number 01
       .hero__block
         -if(en)
@@ -23,19 +23,19 @@ mixin hero(en)
             a(href="#").hero__download Скачать резюме (PDF, 2Mb)
 
       div.hero__image-container
-        img(src="./public/img/hero-photo.png").hero__image
-        img(src="./public/img/hero-beneath-photo.svg").hero__oval
+        img(src="./public/img/hero-photo.png").hero__image.animated.fadeInUp
+        img(src="./public/img/hero-beneath-photo.svg").hero__oval.animated.fadeInUp
 
-      .scroll-block
+      .scroll-block.animated.fadeInDown
         include scrollIcon.svg
         span.scroll-block__label Вниз
 
           
 
-    .counter
-      +counter('01')
-      +counter('02')
-      +counter('03')
-      +counter('04')
-      +counter('05')
-      +counter('06')
+  .counter.animated.fadeInRight
+    +counter('01')
+    +counter('02')
+    +counter('03')
+    +counter('04')
+    +counter('05')
+    +counter('06')

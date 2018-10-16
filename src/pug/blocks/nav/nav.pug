@@ -6,9 +6,9 @@ mixin nav()
           a(href=`${val}`).nav__link!=key
 
 mixin language()
-  section.language
+  section.language.animated.fadeInDown
     .container
-      ul.language__list
+      ul.language__list.animated.fadeIn
         li: a(href="./index.html") РУС
         li: a(href="./en.html") ENG
 
@@ -21,7 +21,7 @@ mixin header()
         +social()
 
 mixin social()
-  ul.social
+  ul.social.animated.fadeIn
     li.social__item
       a(href="").social__link
         include behance.svg
