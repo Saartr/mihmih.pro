@@ -28,6 +28,8 @@
     box-sizing border-box
     font-weight 700
     margin-bottom: 0.5rem
+    opacity: 0
+    transition: 0.2s ease-out
   
   @media tablet 
     font-size 24px
@@ -40,9 +42,16 @@
   @media laptop
     padding-left: 5rem
 
+.tech__list li.active
+    opacity: 1
+
+.tech__list li.deactive
+  opacity: 0
+
 .tech__filtre
   font-size 21px
   margin-bottom: 2rem
+  cursor: pointer
 
   @media tablet
     margin-bottom: 2rem

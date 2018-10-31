@@ -10,9 +10,7 @@ mixin tech(en)
         -else
           h2.title Инструменты
       -if(en)
-        .tech__filtre sort by <a href="#" class="tech__link"> level skill/alphabetically </a>
+        .tech__filtre sort by <span class="tech__link"> level skill/alphabetically </a>
       -else
-        .tech__filtre сортировать по <a href="#" class="tech__link"> навыку использования </a>
+        .tech__filtre сортировать по <span class="tech__link"> навыку использования </a>
       ul.tech__list
-        each item in list
-          li!=item
