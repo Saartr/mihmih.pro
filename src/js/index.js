@@ -1,6 +1,7 @@
 import lang from './lang';
 import animate from './animations/numberAnimation';
 import heroAnimate from './animations/heroAnimation';
+import skillsAnimate from './animations/skillsAnimation';
 import scrollSpy from './scrollSpy';
 
 
@@ -10,7 +11,9 @@ $(document).ready(function () {
 
   scrollSpy.scrollSpy();
 
-  $('.hero .main__number').addClass('activeHeroSlide');
+  $('.counter__item').eq(0).addClass('is-selected');
+
+  skillsAnimate.skillsAnimate();
 
   heroAnimate.heroNumberAnimate('.hero .main__number');
   animate.numberAnimate('.skill .main__number');
@@ -19,5 +22,10 @@ $(document).ready(function () {
   animate.numberAnimate('.education .main__number');
   animate.numberAnimate('.portfolio .main__number');
   animate.numberAnimate('.footer .main__number');
+  skillsAnimate.skillsAnimate('.skill__row');
+
+  setTimeout(() => {
+    $('.hero .main__number').addClass('activeHeroSlide');
+  }, 2000);
 
 });

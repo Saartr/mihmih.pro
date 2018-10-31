@@ -44,11 +44,29 @@
       padding-left: 0
 
 .skill__top
+  position: relative
   display flex
-  border-bottom: 2px solid #DEDEDE;
   padding: 0.5rem 0
   align-items: center
   justify-content: space-between
+
+  &:after
+    content: ''
+    position: absolute
+    width: 0
+    height: 2px
+    bottom: -2px
+    background: #DEDEDE
+    transition: 0.3s ease-out
+
+.skill__top.active
+  &:after
+    width: 100%
+
+  .skill__progress
+    margin-right: 0
+    margin-left auto
+    opacity: 1
 
 .skill__title
   margin 0
@@ -56,9 +74,11 @@
   font-family: 'GothamPro';
 
 .skill__progress
-  margin-left auto
   font-size: 12px
   color: dark
+  opacity: 0
+  margin-right: 3rem
+  transition: 0.2s ease-out
 
 .skill__list
   list-style none
