@@ -4,8 +4,9 @@ mixin item(img, title, text, src, more, site)
     .portfolio__front
       h3.portfolio__title!=title
       p.portfolio__text!=text
-      .portfolio__link!=more
-        a(href=src)!=site
+      -if(site)
+        .portfolio__link!=more
+          a(href=src target="_blank")!=site
 
 
 mixin portfolio(en)
@@ -14,30 +15,30 @@ mixin portfolio(en)
       .portfolio__header
         .main__number 06
         -if(en)
-          h2.title Portfolio
+          h2.title Recent works
         -else
-          h2.title Портфолио
+          h2.title Последние работы
       .portfolio__list
         -if(en)
-          +item('/public/img/3.png', 'Credit Scorring', 'Design and development dashboards. Visualization of data processing.', 'https://devim.com', 'Read more at ', 'Devim.com')
-          +item('/public/img/2.png', 'Finance CRM', 'Design and development financial CRM. Design of components systems.', 'https://devim.com', 'Read more at ', 'Devim.com')
-          +item('/public/img/1.png', 'MTS TV', 'Design and development web application for Android console', 'https://devim.com', 'Read more at ', 'Devim.com')
+          +item('/public/img/3.png', 'Credit Scorring', 'Design and development dashboards. Visualization of data processing.', 'https://devim.com/ru/projects/scoring ', 'Read more at ', 'Devim.com')
+          +item('/public/img/2.png', 'Finance CRM', 'Design and development financial CRM. Design of components systems.', 'https://devim.com/ru/projects/crm', 'Read more at ', 'Devim.com')
+          +item('/public/img/1.png', 'MTS TV', 'Design and development web application for Android console', '', ' ', '')
           +item('/public/img/4.png', 'eMkopo', 'Design and development landing page and customers profile. ', 'https://emkopo.co.ke', 'Read more at ', 'emkopo.co.ke')
-          +item('/public/img/5.png', 'Devim Stickers', 'Design corporate stickerpack with Devim’s mascot. ', '#', 'Show the shot: ', 'dribbble.com')
+          +item('/public/img/5.png', 'Devim Stickers', 'Design corporate stickerpack with Devim’s mascot. ', 'https://dribbble.com/shots/4521042-Stickers-Dribbble', 'Show the shot: ', 'dribbble.com')
           +item('/public/img/6.png', 'Devim.Team', 'Creation the concept, design and development websites for team.', 'https://devim.team', 'More ', 'devim.team')
-          +item('/public/img/7.png', 'Company identity for DEVIM', 'Creating graphic design for company identity and printing materials', '#', 'More: ', 'behance.net')
-          +item('/public/img/8.png', 'Cryptos.fund', 'Design and development landing page and customers profile for blockchain fund', '#', 'More: ', 'Zeplin')
-          +item('/public/img/9.png', 'CMYKer', 'Design and development CRM for printing offices', '#', 'More: ', 'tilda')
+          +item('/public/img/7.png', 'Company identity for DEVIM', 'Creating graphic design for company identity and printing materials', 'https://www.behance.net/gallery/64640533/razrabotka-firmennogo-stilja-dlja-finteh-kompanii-Devim', 'More: ', 'behance.net')
+          +item('/public/img/8.png', 'Cryptos.fund', 'Design and development landing page and customers profile for blockchain fund', '/public/img/main_cryptos.png', 'More: ', 'Zeplin')
+          +item('/public/img/9.png', 'CMYKer', 'Design and development CRM for printing offices', 'http://cmyker.ru/ ', 'More: ', 'tilda')
         -else
-          +item('/public/img/3.png', 'Credit Scorring', 'Визуализация процессов обработки данных, разработка дашбордов и графиков', 'https://devim.com', 'Read more at ', 'Devim.com')
-          +item('/public/img/2.png', 'Finance CRM', 'Проектирование интерфейса CRM-системы, Дизайн-система компонентов', 'https://devim.com', 'Read more at ', 'Devim.com')
-          +item('/public/img/1.png', 'MTS TV', 'Разработка интерфейса файлового менеджера для Android-приставки', 'https://devim.com', 'Read more at ', 'Devim.com')
+          +item('/public/img/3.png', 'Credit Scorring', 'Визуализация процессов обработки данных, разработка дашбордов и графиков', 'https://devim.com/ru/projects/scoring ', 'Read more at ', 'Devim.com')
+          +item('/public/img/2.png', 'Finance CRM', 'Проектирование интерфейса CRM-системы, Дизайн-система компонентов', 'https://devim.com/ru/projects/crm', 'Read more at ', 'Devim.com')
+          +item('/public/img/1.png', 'MTS TV', 'Разработка интерфейса файлового менеджера для Android-приставки', '', '', '')
           +item('/public/img/4.png', 'eMkopo', 'Лендинг и личный кабинет для кредитов в Кении ', 'https://emkopo.co.ke', 'Посмотреть ', 'emkopo.co.ke')
-          +item('/public/img/5.png', 'Devim Stickers', 'Развитие стикерпака личного маскота компании Devim ', '#', 'Посмотреть шот на ', 'dribbble.com')
+          +item('/public/img/5.png', 'Devim Stickers', 'Развитие стикерпака личного маскота компании Devim ', 'https://dribbble.com/shots/4521042-Stickers-Dribbble', 'Посмотреть шот на ', 'dribbble.com')
           +item('/public/img/6.png', 'Devim.Team', 'Идея и отрисовка командного сайта компании Devim', 'https://devim.team', 'Посмотреть ', 'devim.team')
-          +item('/public/img/7.png', 'Branding DEVIM', 'Разработка фирменного стиля финтех-компании', '#', 'Посмотреть презентацию на ', 'behance.net')
-          +item('/public/img/8.png', 'Cryptos.fund', 'Разработка лэндига и личного кабинета клиента для блокчейн-фонда', '#', 'Посмотреть макет в ', 'Zeplin')
-          +item('/public/img/9.png', 'CMYKer', 'CRM-система для типографий ', '#', 'Презентация на ', 'tilda')
+          +item('/public/img/7.png', 'Branding DEVIM', 'Разработка фирменного стиля финтех-компании', 'https://www.behance.net/gallery/64640533/razrabotka-firmennogo-stilja-dlja-finteh-kompanii-Devim', 'Посмотреть презентацию на ', 'behance.net')
+          +item('/public/img/8.png', 'Cryptos.fund', 'Разработка лэндига и личного кабинета клиента для блокчейн-фонда', '/public/img/main_cryptos.png', 'Посмотреть макет в ', 'Zeplin')
+          +item('/public/img/9.png', 'CMYKer', 'CRM-система для типографий ', 'http://cmyker.ru/ ', 'Посмотреть на ', 'Tilda')
 
       -if(en)
         p.portfolio__note *Many projects are still under NDA. I can tell and show only parts of projects without mentioning confidential info.

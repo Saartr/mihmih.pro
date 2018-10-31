@@ -52,6 +52,7 @@
     margin-bottom: 4rem
 
 .tech__link
+  position: relative
   font-weight bold
   display inline-block
   border-bottom 2px solid #DEDEDE
@@ -60,10 +61,23 @@
   text-decoration none
   transition: 0.25s ease-out
 
-  &:hover
+  &:after
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    height: 0
+    width: 100%
     background: dark
+    transition: 0.25s ease-out
+    z-index: -1
+
+  &:hover
     color: #fff
     border-bottom 2px solid dark
+    &:after
+      height: 100%
+
 
 @media laptop
   .tech
