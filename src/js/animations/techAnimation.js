@@ -1,6 +1,8 @@
 export default {
   techAnimate(element) {
 
+    var listTimeout;
+
     $(document).ready(function () {
 
       if($(window).scrollTop() >= $('#section2').offset().top) {
@@ -8,7 +10,7 @@ export default {
         (function add(i) {
           $('.tech__list li').eq(i).addClass("active");
           if (i < $('.tech__list li').length - 1) {
-            setTimeout(function() { add(i + 1); }, 200);
+            listTimeout = setTimeout(function() { add(i + 1); }, 200);
           }
         })(0);
 
@@ -21,7 +23,7 @@ export default {
               (function add(i) {
                 $('.tech__list li').eq(i).addClass("active");
                 if (i < $('.tech__list li').length - 1) {
-                  setTimeout(function() { add(i + 1); }, 200);
+                  listTimeout = setTimeout(function() { add(i + 1); }, 200);
                 }
               })(0);
 
@@ -31,6 +33,10 @@ export default {
 
       }
 
+    });
+
+    $('.tech__link').on('click', function() {
+      clearTimeout(listTimeout);
     });
 
   }
