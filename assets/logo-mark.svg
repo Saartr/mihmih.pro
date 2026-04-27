@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" fill="#0A0A0A"></rect>
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, sans-serif" font-weight="500" font-size="28" fill="#FAFAF7" letter-spacing="-1">МС</text>
+  <circle cx="52" cy="52" r="3" fill="#FF4500"></circle>
+</svg>

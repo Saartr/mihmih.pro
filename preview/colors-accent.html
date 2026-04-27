@@ -1,0 +1,20 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="_card.css">
+<style>
+.sw{display:flex;flex-direction:column;gap:6px}
+.chip{height:80px;display:flex;align-items:flex-end;padding:8px}
+.lbl{font-family:var(--font-mono);font-size:11px;color:var(--fg-3);text-transform:uppercase;letter-spacing:0.08em}
+.hex{font-family:var(--font-mono);font-size:11px;color:var(--fg-2)}
+</style></head><body>
+<div class="card col gap-4">
+  <div class="row gap-3" style="height:80px">
+    <div class="chip" style="background:#FF4500;flex:2;color:#fff;align-items:flex-start;justify-content:flex-start;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em">— ACCENT</div>
+    <div class="chip" style="background:#FFEDE5;flex:1;align-items:flex-start;justify-content:flex-start;font-family:var(--font-mono);font-size:11px;color:var(--fg-2);letter-spacing:0.08em">— SOFT</div>
+    <div class="chip" style="background:#E63E00;flex:1;color:#fff;align-items:flex-start;justify-content:flex-start;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em">— PRESS</div>
+  </div>
+  <div class="row gap-3">
+    <div class="sw"><div class="hex">#FF4500</div><div class="lbl">accent — 1 на экран</div></div>
+    <div class="sw"><div class="hex">#FFEDE5</div><div class="lbl">accent-soft — фон-метка</div></div>
+    <div class="sw"><div class="hex">#E63E00</div><div class="lbl">accent — press / hover</div></div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html><html lang="ru"><head>
+
+
+  <meta charset="utf-8">
+  <title>Михаил Скворцов — Дизайнер интерфейсов</title>
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="icon" href="../../assets/logo-mark.svg">
+  <style>
+    :root {
+      --bg-dark:       #0B0B0B;
+      --fg-dark:       #F2F1EC;
+      --fg-dark-2:     #C9C8C2;
+      --fg-dark-3:     #7A7975;
+      --fg-dark-4:     #4A4946;
+      --line-dark:     #1F1F1D;
+    }
+    html, body { background: var(--bg-dark); }
+    body { margin: 0; color: var(--fg-dark); font-family: var(--font-sans); }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--fg-dark-4);
+      transition: text-decoration-color 200ms;
+    }
+    a:hover { text-decoration-color: #FF4500; }
+
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 32px 160px; }
+
+    .avatar {
+      width: 96px; height: 96px; border-radius: 36px;
+      background-image: url('../../assets/portrait.jpg');
+      background-size: cover; background-position: center 25%;
+      margin-bottom: 56px;
+      filter: contrast(1.05) brightness(0.95);
+      box-shadow: inset 0 0 0 1px var(--line-dark);
+    }
+
+    h1 {
+      font-size: 64px; font-weight: 700;
+      letter-spacing: -0.035em; line-height: 1.0;
+      margin: 0 0 32px;
+      color: var(--fg-dark);
+    }
+
+    .lede {
+      font-size: 22px; font-weight: 500;
+      line-height: 1.4; letter-spacing: -0.015em;
+      color: var(--fg-dark);
+      margin: 0 0 28px;
+    }
+    .lede.muted-links a { color: var(--fg-dark); }
+
+    section { margin-top: 88px; }
+
+    h2 {
+      font-size: 17px; font-weight: 700;
+      letter-spacing: -0.005em; line-height: 1.3;
+      margin: 0 0 20px;
+      color: var(--fg-dark);
+    }
+
+    .xp-list { list-style: none; padding: 0; margin: 0; }
+    .xp-list li {
+      font-size: 17px; line-height: 1.7;
+      letter-spacing: -0.005em;
+      padding-left: 16px;
+      position: relative;
+    }
+    .xp-list li::before {
+      content: "·";
+      position: absolute; left: 0; top: 0;
+      color: var(--fg-dark);
+    }
+    .xp-list .role { font-weight: 700; color: var(--fg-dark); }
+    .xp-list .meta { color: var(--fg-dark-3); font-weight: 400; }
+
+    .cases { list-style: none; padding: 0; margin: 0; counter-reset: c; display: flex; flex-direction: column; gap: 96px; }
+    .cases > li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 12px;
+    }
+    .cases > li::before {
+      counter-increment: c;
+      content: counter(c);
+      font-size: 17px; color: var(--fg-dark-3);
+      font-variant-numeric: tabular-nums;
+      padding-top: 2px;
+    }
+    .cases .title {
+      font-size: 22px; font-weight: 600;
+      letter-spacing: -0.015em; line-height: 1.25;
+      display: block; margin-bottom: 12px;
+      color: var(--fg-dark);
+      text-decoration-color: var(--fg-dark-4);
+    }
+    .cases .blurb {
+      font-size: 16px; color: var(--fg-dark-2);
+      line-height: 1.6; letter-spacing: -0.003em;
+      margin: 0 0 14px;
+    }
+    .cases .metrics {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--fg-dark-3); text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+    .cases .metrics b { color: #FF4500; font-weight: 500; }
+
+    /* Скриншоты проекта — плейсхолдеры окон браузера */
+    .shots {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      margin-top: 8px;
+    }
+    .shots .shot:first-child { grid-column: 1 / -1; }
+    .shot {
+      aspect-ratio: 16 / 10;
+      background: #131311;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      position: relative; overflow: hidden;
+    }
+    .shot::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 28px;
+      background: #181816; border-bottom: 1px solid var(--line-dark);
+    }
+    .shot::after {
+      content: ""; position: absolute; left: 12px; top: 10px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #2A2A28; box-shadow: 14px 0 0 #2A2A28, 28px 0 0 #2A2A28;
+    }
+    .shot .canvas {
+      position: absolute; inset: 28px 0 0 0;
+      display: grid; grid-template-columns: 120px 1fr; gap: 1px;
+      background: var(--line-dark);
+    }
+    .shot .sidebar { background: #101010; }
+    .shot .body { background: #161614; padding: 14px; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 24px; gap: 8px; }
+    .shot .body span { background: #1F1F1D; border-radius: 2px; }
+    .shot .body span.accent { background: rgba(255, 69, 0, 0.4); }
+    .shot .body span.wide { grid-column: span 2; }
+    .shot .body span.full { grid-column: 1 / -1; height: 56px; }
+    .shot.mobile { aspect-ratio: 9 / 16; max-width: 220px; margin: 0 auto; }
+    .shot.mobile::before, .shot.mobile::after { display: none; }
+    .shot.mobile .canvas { inset: 0; grid-template-columns: 1fr; }
+
+    /* Real screenshot grid */
+    .shots.real { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .shots.real img:first-child { grid-column: 1 / -1; }
+    .shots.real img {
+      width: 100%; display: block;
+      border-radius: 6px;
+      border: 1px solid var(--line-dark);
+      background: #FFF;
+    }
+
+    /* Slider — horizontal snap carousel */
+    .slider {
+      position: relative; margin-top: 8px;
+    }
+    .slider .track {
+      display: flex; gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding-bottom: 12px;
+    }
+    .slider .track::-webkit-scrollbar { display: none; }
+    .slider .track > button {
+      flex: 0 0 auto;
+      width: min(560px, 88%);
+      aspect-ratio: 16 / 10;
+      scroll-snap-align: center;
+      padding: 0; margin: 0;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      background: #0E0E0C;
+      cursor: zoom-in;
+      overflow: hidden;
+      position: relative;
+      transition: border-color 200ms;
+    }
+    .slider .track > button:hover { border-color: #FF4500; }
+    .slider .track > button img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    .slider .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 4px;
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--fg-dark-3); text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .slider .nav .arrows { display: flex; gap: 8px; }
+    .slider .nav button {
+      width: 32px; height: 32px;
+      background: transparent;
+      border: 1px solid var(--line-dark);
+      border-radius: 50%;
+      color: var(--fg-dark-2);
+      cursor: pointer;
+      font-size: 14px; line-height: 1;
+      transition: border-color 200ms, color 200ms;
+    }
+    .slider .nav button:hover { border-color: #FF4500; color: #FF4500; }
+    .slider .nav .count b { color: var(--fg-dark); }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(8, 8, 8, 0.94);
+      display: none; align-items: center; justify-content: center;
+      padding: 5vh 4vw;
+      z-index: 1000;
+      cursor: zoom-out;
+      animation: fadeIn 200ms ease-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%; max-height: 100%;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox .close {
+      position: absolute; top: 24px; right: 24px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid var(--fg-dark-3);
+      color: var(--fg-dark);
+      cursor: pointer;
+      font-size: 18px; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lightbox .close:hover { border-color: #FF4500; color: #FF4500; }
+    .lightbox .lb-counter {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      font-family: var(--font-mono); font-size: 12px;
+      color: var(--fg-dark-3); letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* DION video-call mock */
+    .shot.video .canvas {
+      inset: 28px 0 0 0; grid-template-columns: 1fr; background: #0E0E0C;
+      padding: 10px; gap: 6px; display: grid; grid-template-rows: 1fr 32px;
+    }
+    .shot.video .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .shot.video .tile {
+      background: linear-gradient(135deg, #2A2826 0%, #1A1A18 100%);
+      border-radius: 4px; position: relative; overflow: hidden;
+    }
+    .shot.video .tile::after {
+      content: ""; position: absolute; left: 50%; top: 38%; transform: translate(-50%, -50%);
+      width: 26%; aspect-ratio: 1; border-radius: 50%; background: #44423E;
+    }
+    .shot.video .tile::before {
+      content: ""; position: absolute; left: 22%; right: 22%; top: 60%; height: 32%;
+      background: #44423E; border-radius: 40% 40% 0 0;
+    }
+    .shot.video .tile.speaker { box-shadow: inset 0 0 0 2px #FF4500; }
+    .shot.video .toolbar {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      background: #15140F; border-radius: 4px;
+    }
+    .shot.video .toolbar i {
+      width: 18px; height: 18px; border-radius: 50%; background: #2A2826;
+    }
+    .shot.video .toolbar i.end { background: #FF4500; }
+
+    .skills-block {
+      display: grid; grid-template-columns: 140px 1fr;
+      gap: 12px 24px; margin-top: 4px;
+    }
+    .skills-block dt { font-weight: 700; font-size: 15px; color: var(--fg-dark); padding-top: 1px; }
+    .skills-block dd { margin: 0; font-size: 15px; color: var(--fg-dark-3); line-height: 1.6; letter-spacing: -0.003em; }
+
+    .footnote {
+      margin-top: 120px; padding-top: 24px;
+      border-top: 1px solid var(--line-dark);
+      font-family: var(--font-mono); font-size: 12px;
+      color: var(--fg-dark-3); letter-spacing: 0.02em;
+      display: flex; justify-content: space-between;
+    }
+
+    .accent-dot { color: #FF4500; }
+
+    /* Subtle grain — еле уловимая текстура для бумажности тёмного */
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 3px 3px;
+      mix-blend-mode: overlay;
+      z-index: 0;
+    }
+    .page { position: relative; z-index: 1; }
+
+    .page > * { animation: fadeUp 720ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .page > *:nth-child(1) { animation-delay: 0ms; }
+    .page > *:nth-child(2) { animation-delay: 60ms; }
+    .page > *:nth-child(3) { animation-delay: 120ms; }
+    .page > *:nth-child(4) { animation-delay: 180ms; }
+    .page > *:nth-child(5) { animation-delay: 240ms; }
+    .page > *:nth-child(6) { animation-delay: 300ms; }
+    .page > *:nth-child(n+7) { animation-delay: 360ms; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+    ::selection { background: #FF4500; color: #0B0B0B; }
+
+    @media (max-width: 600px) {
+      .page { padding: 56px 24px 96px; }
+      h1 { font-size: 44px; }
+      .lede { font-size: 19px; }
+      .skills-block { grid-template-columns: 1fr; gap: 4px 0; }
+      .skills-block dt { padding-top: 12px; }
+    }
+  </style>
+<link id="gfont-Raleway" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Rubik" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Noto-Sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Fira-Sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Open-Sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Inter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"></head>
+<body data-screen-label="onepager" data-cc-id="cc-1" style="cursor: crosshair; font-family: Inter; font-size: 16px;">
+  <main class="page">
+    <div class="avatar" aria-label="Михаил Скворцов"></div>
+
+    <h1>Михаил Скворцов<span class="accent-dot">.</span></h1>
+
+    <p class="lede">
+      Дизайнер интерфейсов с любовью к структуре и системному подходу.
+      Проектирую B2B и B2C-продукты — соединяю выверенный UX с глубокой
+      работой над дизайн-системами и процессами в команде.
+    </p>
+
+    <p class="lede muted-links">
+      15+ лет в продуктовом дизайне. Сейчас руковожу отделом проектирования
+      в <a href="https://nota.tech" target="_blank" rel="noopener">НОТА</a> (Группа Т1).
+      Связаться можно в <a href="https://t.me/saartr" target="_blank" rel="noopener">Telegram</a>,
+      по телефону <a href="tel:+79818223244">+7 981 822 32 44</a>
+      или на <a href="mailto:saartrr@gmail.com">saartrr@gmail.com</a>.
+    </p>
+
+    <section>
+      <h2>Опыт работы</h2>
+      <ul class="xp-list">
+        <li><span class="role">Руководитель отдела проектирования,</span> <span class="meta">Т1 · НОТА, 2023 — наст.</span></li>
+        <li><span class="role">Ведущий дизайнер,</span> <span class="meta">Иннотех · НОТА Юнион, 2022 — 2023</span></li>
+        <li><span class="role">Senior UX/UI Designer,</span> <span class="meta">Монополия, 2020 — 2021</span></li>
+        <li><span class="role">Lead UX/UI Designer,</span> <span class="meta">F2FGroup · AUTHOR24, 2019</span></li>
+        <li><span class="role">Lead UX/UI Designer,</span> <span class="meta">Devim, 2017 — 2019</span></li>
+        <li><span class="role">Product Designer,</span> <span class="meta">MAJOR, 2014 — 2017</span></li>
+        <li><span class="role">Фриланс и проектная работа,</span> <span class="meta">Intitle и др., 2009 — 2013</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Избранные проекты</h2>
+      <ol class="cases">
+        <li>
+          <div>
+            <a href="https://diongo.ru/" target="_blank" rel="noopener" class="title">DION — платформа корпоративных коммуникаций</a>
+            <div class="blurb">
+              Унифицированная платформа коммуникаций холдинга Т1: видеоконференции до&nbsp;10&nbsp;000 участников, корпоративный мессенджер, бронирование переговорных, видеохостинг, звонки. Работал над дизайн-системой продукта и&nbsp;ключевыми сценариями ВКС, чатов и&nbsp;DION.Rooms — от&nbsp;десктоп- и&nbsp;веб-клиентов до&nbsp;мобильных приложений. Фокус на&nbsp;стабильности интерфейса при&nbsp;слабых каналах связи, простоте onboarding и&nbsp;соответствии корпоративным требованиям к&nbsp;безопасности (on-prem, SSO, DLP).
+            </div>
+            <div class="metrics"><span><b>10K+</b> участников ВКС</span><span><b>3</b> платформы</span><span>2023 — наст. · Т1 · НОТА</span></div>
+            <div class="slider" data-slider>
+              <div class="track">
+                <button type="button" data-i="0"><img src="../../assets/dion/conf-chat.png" alt="Конференция с чатом"></button>
+                <button type="button" data-i="1"><img src="../../assets/dion/laptop.png" alt="DION на лэптопе"></button>
+                <button type="button" data-i="2"><img src="../../assets/dion/mobile.png" alt="Корпоративная видеосеть"></button>
+                <button type="button" data-i="3"><img src="../../assets/dion/quick.png" alt="Быстрые встречи"></button>
+                <button type="button" data-i="4"><img src="../../assets/dion/native.png" alt="Нативная архитектура"></button>
+                <button type="button" data-i="5"><img src="../../assets/dion/chats.png" alt="DION.Чаты"></button>
+                <button type="button" data-i="6"><img src="../../assets/dion/posters.png" alt="Постеры DION"></button>
+              </div>
+              <div class="nav">
+                <span class="count"><b data-current>1</b> / <span data-total>7</span></span>
+                <span class="arrows">
+                  <button type="button" data-prev aria-label="Предыдущий">←</button>
+                  <button type="button" data-next aria-label="Следующий">→</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="#" class="title">Редизайн HRM-платформы НОТА Юнион</a>
+            <div class="blurb">
+              Трансформация существующей версии под актуальные запросы рынка. Полностью завершил редизайн на базе новой дизайн-системы, внедрил Storybook с актуальной библиотекой компонентов из Figma — это убрало энтропию между дизайном и разработкой и сократило время разработки. Прототипы и тестирования на фокус-группах для валидации решений. Вывели продукт на конкурентный уровень среди ведущих ATS-систем РФ.
+            </div>
+            <div class="metrics"><span><b>+42%</b> скорость задач</span><span><b>+68</b> NPS</span><span>2022 — 2023 · Иннотех</span></div>
+            <div class="shots real">
+              <img src="../../assets/union/dashboard.png" alt="Дашборд НОТА Юнион">
+              <img src="../../assets/union/calendar.png" alt="Календарь">
+              <img src="../../assets/union/list.png" alt="Список вакансий">
+              <img src="../../assets/union/candidate.png" alt="Карточка кандидата">
+              <img src="../../assets/union/surveys.png" alt="Опросы">
+              <img src="../../assets/union/publisher.png" alt="Публикатор">
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="#" class="title">Дизайн-система вендора НОТА</a>
+            <div class="blurb">
+              Общая дизайн-система для нескольких B2C-продуктов вендора — nota.tech, diongo.ru (корпоративные коммуникации), НОТА Юнион (HRM). Организация работы отдела, аттестация и найм проектировщиков, менторство. Внедрение новых инструментов работы с графикой и процессов синхронизации дизайна с разработкой.
+            </div>
+            <div class="metrics"><span><b>7</b> команд</span><span><b>4</b> продукта</span><span>2023 — наст. · Т1 · НОТА</span></div>
+            <div class="shots">
+              <div class="shot"><div class="canvas" style="grid-template-columns:1fr"><div class="body" style="grid-template-columns:repeat(6,1fr)"><span></span><span class="accent"></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="accent"></span><span></span><span></span><span></span></div></div></div>
+              <div class="shot"><div class="canvas"><div class="sidebar"></div><div class="body"><span class="full"></span><span></span><span></span><span class="accent"></span></div></div></div>
+              <div class="shot"><div class="canvas"><div class="sidebar"></div><div class="body"><span class="wide"></span><span></span><span></span><span class="accent"></span><span></span></div></div></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="#" class="title">Платформа грузоперевозок Монополия</a>
+            <div class="blurb">
+              Развитие новой дизайн-системы и продуктового функционала. Генерация продуктовых идей для платформы, валидация решений через прототипы и фокус-группы. Работа с тяжёлыми операционными интерфейсами для логистов и водителей.
+            </div>
+            <div class="metrics"><span>B2B · логистика</span><span>2020 — 2021 · Senior UX/UI</span></div>
+            <div class="shots">
+              <div class="shot"><div class="canvas"><div class="sidebar"></div><div class="body"><span class="full"></span><span class="accent"></span><span></span><span></span><span></span><span></span><span></span></div></div></div>
+              <div class="shot mobile"><div class="canvas"><div class="body" style="grid-template-columns:1fr;grid-auto-rows:20px"><span></span><span class="accent"></span><span></span><span></span><span></span><span></span></div></div></div>
+              <div class="shot mobile"><div class="canvas"><div class="body" style="grid-template-columns:1fr;grid-auto-rows:20px"><span></span><span></span><span class="accent"></span><span></span><span></span></div></div></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="#" class="title">Финтех-продукты Devim</a>
+            <div class="blurb">
+              Реализация полного цикла от сбора требований до запуска продуктов. Менеджмент UX/UI-команды. Заказчики: МТС, Сбербанк (POS-терминалы), CashWagon, До зарплаты. Высокая планка по комплаенсу и качеству форм.
+            </div>
+            <div class="metrics"><span>Финтех · POS</span><span>2017 — 2019 · Lead UX/UI</span></div>
+            <div class="shots">
+              <div class="shot mobile"><div class="canvas"><div class="body" style="grid-template-columns:1fr;grid-auto-rows:20px"><span></span><span></span><span class="accent"></span><span></span></div></div></div>
+              <div class="shot mobile"><div class="canvas"><div class="body" style="grid-template-columns:1fr;grid-auto-rows:20px"><span></span><span class="accent"></span><span></span><span></span></div></div></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="#" class="title">Сайт-агрегатор MAJOR</a>
+            <div class="blurb">
+              Работа в тесной связи с CEO. Спроектировал и отрисовал сайт-агрегатор, собирающий органический трафик для основных сайтов холдинга. Глубокий опыт работы с аналитикой и SEO-структурой.
+            </div>
+            <div class="metrics"><span>B2C · авто</span><span>2014 — 2017 · Product Designer</span></div>
+            <div class="shots">
+              <div class="shot"><div class="canvas"><div class="sidebar"></div><div class="body"><span class="full"></span><span></span><span class="accent"></span><span></span></div></div></div>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Навыки</h2>
+      <dl class="skills-block">
+        <dt>Дизайн</dt>
+        <dd>UI · UX · Product Design · Wireframing · Прототипирование · Интерфейсные анимации · Дизайн-системы · Onboarding</dd>
+        <dt>Инструменты</dt>
+        <dd>Figma · Axure RP · Principle · Photoshop · Illustrator · After Effects · Jira · YouTrack</dd>
+        <dt>Исследования</dt>
+        <dd>Usability Testing · A/B-тесты · CustDev · Анализ данных · Google Analytics · Яндекс.Метрика</dd>
+        <dt>Менеджмент</dt>
+        <dd>Управление командой · Найм и аттестация · Менторство · Фасилитация</dd>
+        <dt>Технологии</dt>
+        <dd>HTML · CSS · Vibecoding</dd>
+        <dt>Языки</dt>
+        <dd>Русский — родной · Английский — B2</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Образование</h2>
+      <ul class="xp-list">
+        <li><span class="role">СПбГПУ, Магистр,</span> <span class="meta">ИМОП · Информационные технологии в дизайне, 2013</span></li>
+        <li><span class="role">HTML Academy,</span> <span class="meta">HTML, CSS, JS — базовый уровень, 2016</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Резюме</h2>
+      <p style="font-size: 17px; line-height: 1.55; letter-spacing: -0.005em; margin: 0; color: var(--fg-dark-2);">
+        Полная версия — <a href="../../assets/CV.pdf" target="_blank">PDF</a>.
+        Санкт-Петербург, открыт к работе — рассматриваю гибрид или удалёнку.
+      </p>
+    </section>
+
+    <div class="footnote">
+      <span>© 2026 — Михаил Скворцов</span>
+      <span>v.1.0 / 042726</span>
+    </div>
+  </main>
+
+
+</body></html>
