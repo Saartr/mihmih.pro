@@ -14,31 +14,27 @@
   const cursorTargets = document.querySelectorAll('a, button, img, [role="button"]');
   let sideMetaStart = 0;
 
-  const placeImageSkeleton = (image, skeleton) => {
-    const rect = image.getBoundingClientRect();
-    const styles = getComputedStyle(image);
-
-    skeleton.style.left = `${Math.round(rect.left + window.scrollX)}px`;
-    skeleton.style.top = `${Math.round(rect.top + window.scrollY)}px`;
-    skeleton.style.width = `${Math.round(rect.width)}px`;
-    skeleton.style.height = `${Math.round(rect.height)}px`;
-    skeleton.style.borderRadius = styles.borderRadius;
-  };
-
   images.forEach((image) => {
-    image.classList.add('image-loading');
-    const skeleton = document.createElement('span');
+    const frame = document.createElement('span');
+    const layoutClasses = ['circle', 'circle-main', 'circle-side', 'layer-back', 'layer-front'];
 
-    skeleton.className = 'image-skeleton';
-    document.body.appendChild(skeleton);
-    placeImageSkeleton(image, skeleton);
-    image._skeleton = skeleton;
+    frame.className = 'image-frame image-loading-frame';
+    layoutClasses.forEach((className) => {
+      if (image.classList.contains(className)) {
+        image.classList.remove(className);
+        frame.classList.add(className);
+      }
+    });
+
+    image.parentNode.insertBefore(frame, image);
+    frame.appendChild(image);
+    image.classList.add('image-loading');
 
     const markLoaded = () => {
       image.classList.remove('image-loading');
       image.classList.add('image-loaded');
-      skeleton.remove();
-      delete image._skeleton;
+      frame.classList.remove('image-loading-frame');
+      frame.classList.add('image-loaded-frame');
     };
 
     if (image.complete) {
@@ -49,77 +45,24 @@
     }
   });
 
-  window.addEventListener('resize', () => {
-    images.forEach((image) => {
-      if (image._skeleton) {
-        placeImageSkeleton(image, image._skeleton);
-      }
-    });
-  });
-
   if (cursor && window.matchMedia('(pointer: fine)').matches) {
-    const trailLength = 9;
-    const trail = Array.from({ length: trailLength }, (_, index) => {
-      const dot = document.createElement('span');
-      dot.className = 'cursor-trail-dot';
-      dot.style.setProperty('--trail-index', index);
-      document.body.appendChild(dot);
-      return {
-        element: dot,
-        x: -100,
-        y: -100,
-      };
-    });
-
     let pointerX = -100;
     let pointerY = -100;
-    let isCursorVisible = false;
-
-    const renderTrail = () => {
-      let targetX = pointerX;
-      let targetY = pointerY;
-
-      trail.forEach((dot, index) => {
-        const ease = 0.32 - index * 0.018;
-        dot.x += (targetX - dot.x) * ease;
-        dot.y += (targetY - dot.y) * ease;
-        dot.element.style.transform = `translate(${dot.x - 12}px, ${dot.y - 12}px)`;
-
-        targetX = dot.x;
-        targetY = dot.y;
-      });
-
-      requestAnimationFrame(renderTrail);
-    };
-
-    requestAnimationFrame(renderTrail);
 
     window.addEventListener('pointermove', (event) => {
       pointerX = event.clientX;
       pointerY = event.clientY;
-      isCursorVisible = true;
       cursor.classList.add('is-visible');
-      trail.forEach((dot) => dot.element.classList.add('is-visible'));
       cursor.style.transform = `translate(${pointerX - 12}px, ${pointerY - 12}px)`;
     }, { passive: true });
 
     document.addEventListener('pointerleave', () => {
-      isCursorVisible = false;
       cursor.classList.remove('is-visible');
-      trail.forEach((dot) => dot.element.classList.remove('is-visible'));
     });
 
     cursorTargets.forEach((target) => {
-      target.addEventListener('pointerenter', () => {
-        cursor.classList.add('is-active');
-        if (isCursorVisible) {
-          trail.forEach((dot) => dot.element.classList.add('is-active'));
-        }
-      });
-      target.addEventListener('pointerleave', () => {
-        cursor.classList.remove('is-active');
-        trail.forEach((dot) => dot.element.classList.remove('is-active'));
-      });
+      target.addEventListener('pointerenter', () => cursor.classList.add('is-active'));
+      target.addEventListener('pointerleave', () => cursor.classList.remove('is-active'));
     });
   }
 
@@ -175,6 +118,7 @@
     lightboxImage.alt = image.alt || '';
     lightbox.classList.add('is-open');
     lightbox.setAttribute('aria-hidden', 'false');
+    sideMeta?.classList.add('is-hidden-by-lightbox');
     document.body.style.overflow = 'hidden';
   };
 
@@ -183,6 +127,7 @@
     lightbox.classList.remove('is-open');
     lightbox.setAttribute('aria-hidden', 'true');
     lightboxImage.removeAttribute('src');
+    sideMeta?.classList.remove('is-hidden-by-lightbox');
     document.body.style.overflow = '';
   };
 

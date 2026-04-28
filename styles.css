@@ -49,31 +49,8 @@ body {
   mix-blend-mode: difference;
 }
 
-.cursor-trail-dot {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  background: var(--fg);
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0;
-  transform: translate(-100px, -100px);
-  transition: background-color 120ms ease, opacity 520ms ease;
-  mix-blend-mode: difference;
-}
-
 .cursor-dot.is-visible { opacity: 1; }
 .cursor-dot.is-active { background: var(--accent); mix-blend-mode: normal; }
-.cursor-trail-dot.is-visible {
-  opacity: 1;
-}
-.cursor-trail-dot.is-active {
-  background: var(--accent);
-  mix-blend-mode: normal;
-}
 
 a {
   color: inherit;
@@ -255,25 +232,37 @@ h3 {
 
 .media img,
 .media-grid img,
-.old-stack img {
+.old-stack img,
+.image-frame {
   border-radius: 8px;
   cursor: zoom-in;
 }
 
-.image-loading {
-  opacity: 0;
-}
-
-.image-loaded {
-  opacity: 1;
-  transition: opacity 180ms ease;
-}
-
-.image-skeleton {
-  position: absolute;
-  pointer-events: none;
+.image-frame {
+  position: relative;
+  display: block;
   overflow: hidden;
-  z-index: 14;
+  background: #151515;
+}
+
+.image-frame > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.media > .image-frame,
+.media-grid > .image-frame,
+.old-stack > .image-frame {
+  width: 100%;
+}
+
+.image-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background:
     linear-gradient(
       100deg,
@@ -283,7 +272,25 @@ h3 {
     ),
     #151515;
   background-size: 220% 100%;
+  opacity: 0;
   animation: image-skeleton 1200ms ease-in-out infinite;
+}
+
+.image-loading-frame::before {
+  opacity: 1;
+}
+
+.image-loaded-frame {
+  background: transparent;
+}
+
+.image-loading {
+  opacity: 0;
+}
+
+.image-loaded {
+  opacity: 1;
+  transition: opacity 180ms ease;
 }
 
 @keyframes image-skeleton {
@@ -329,6 +336,12 @@ h3 {
   height: 674px;
   overflow: hidden;
   border-radius: 14px;
+}
+
+.dion-hero .image-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
 }
 
 .dion-hero img {
@@ -394,8 +407,14 @@ h3 {
 .circle {
   position: absolute;
   border-radius: 999px;
-  object-fit: cover;
   cursor: zoom-in;
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .circle-main {
@@ -434,8 +453,13 @@ h3 {
   height: 454px;
 }
 
-.layered img {
+.layered .image-frame {
   position: absolute;
+}
+
+.layered img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -480,6 +504,7 @@ h3 {
   position: absolute;
   left: calc(50% - 515px);
   top: var(--side-meta-top, 0);
+  z-index: 30;
   width: 123px;
   display: flex;
   flex-direction: column;
@@ -502,6 +527,11 @@ h3 {
 .side-meta.is-sticky {
   opacity: 1;
   pointer-events: auto;
+}
+
+.side-meta.is-hidden-by-lightbox {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .side-meta.is-sticky {
@@ -644,8 +674,13 @@ h3 {
     height: auto;
   }
 
-  .layered img {
+  .layered .image-frame {
     position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .layered .image-frame img {
     width: 100%;
     height: auto;
   }
