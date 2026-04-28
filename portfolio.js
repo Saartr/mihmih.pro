@@ -1,6 +1,4 @@
 (() => {
-  const brand = document.querySelector('.brand');
-  const portrait = document.querySelector('.portrait');
   const firstProjectTitle = document.querySelector('.project-copy h3');
   const sideMeta = document.querySelector('.side-meta');
   const sideCompanyText = document.querySelector('[data-side-company-text]');
@@ -9,7 +7,7 @@
   const lightbox = document.querySelector('[data-lightbox]');
   const lightboxImage = document.querySelector('[data-lightbox-image]');
   const closeButton = document.querySelector('[data-close]');
-  const images = document.querySelectorAll('.page img:not(.portrait):not(.wordmark), .monopoly img');
+  const images = document.querySelectorAll('.page img:not(.hero-grid):not(.hero-pointer-image):not(.hero-avatar-image), .monopoly img');
   const cursor = document.querySelector('[data-cursor]');
   const cursorTargets = document.querySelectorAll('a, button, img, [role="button"]');
   let sideMetaStart = 0;
@@ -53,7 +51,7 @@
       pointerX = event.clientX;
       pointerY = event.clientY;
       cursor.classList.add('is-visible');
-      cursor.style.transform = `translate(${pointerX - 12}px, ${pointerY - 12}px)`;
+      cursor.style.transform = `translate(${pointerX}px, ${pointerY}px)`;
     }, { passive: true });
 
     document.addEventListener('pointerleave', () => {
@@ -65,20 +63,6 @@
       target.addEventListener('pointerleave', () => cursor.classList.remove('is-active'));
     });
   }
-
-  const updatePortrait = () => {
-    if (!brand || !portrait) return;
-
-    const maxDrop = parseFloat(getComputedStyle(brand).getPropertyValue('--portrait-drop-max')) || 0;
-    const distance = 70;
-    const progress = Math.min(Math.max(window.scrollY / distance, 0), 1);
-
-    brand.style.setProperty('--portrait-drop', `${Math.round(progress * maxDrop)}px`);
-  };
-
-  updatePortrait();
-  window.addEventListener('scroll', updatePortrait, { passive: true });
-  window.addEventListener('resize', updatePortrait);
 
   const updateSideMetaPosition = () => {
     if (!firstProjectTitle || !sideMeta) return;
