@@ -37,8 +37,8 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 999px;
   background: var(--fg);
   pointer-events: none;
@@ -49,14 +49,44 @@ body {
   mix-blend-mode: difference;
 }
 
+.cursor-trail-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--fg);
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+  transform: translate(-100px, -100px);
+  transition: background-color 120ms ease, opacity 520ms ease;
+  mix-blend-mode: difference;
+}
+
 .cursor-dot.is-visible { opacity: 1; }
 .cursor-dot.is-active { background: var(--accent); mix-blend-mode: normal; }
+.cursor-trail-dot.is-visible {
+  opacity: 1;
+}
+.cursor-trail-dot.is-active {
+  background: var(--accent);
+  mix-blend-mode: normal;
+}
 
 a {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+a:hover {
+  background: var(--fg);
+  color: var(--bg);
+  text-decoration-color: transparent;
 }
 
 img {
@@ -89,7 +119,7 @@ img {
 .portrait {
   position: absolute;
   left: 274px;
-  top: -48px;
+  top: -56px;
   width: 68px;
   height: 80px;
   object-fit: cover;
@@ -228,6 +258,70 @@ h3 {
 .old-stack img {
   border-radius: 8px;
   cursor: zoom-in;
+}
+
+.image-loading {
+  opacity: 0;
+}
+
+.image-loaded {
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+
+.image-skeleton {
+  position: absolute;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 14;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(242, 241, 236, 0.08) 0%,
+      rgba(242, 241, 236, 0.18) 18%,
+      rgba(242, 241, 236, 0.08) 36%
+    ),
+    #151515;
+  background-size: 220% 100%;
+  animation: image-skeleton 1200ms ease-in-out infinite;
+}
+
+@keyframes image-skeleton {
+  from {
+    background-position: 140% 0;
+  }
+
+  to {
+    background-position: -80% 0;
+  }
+}
+
+.image-shine {
+  position: absolute;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 15;
+}
+
+.image-shine::before {
+  content: "";
+  position: absolute;
+  inset: -20% -70%;
+  background: linear-gradient(
+    110deg,
+    transparent 34%,
+    rgba(255, 255, 255, 0.34) 48%,
+    rgba(255, 255, 255, 0.14) 56%,
+    transparent 70%
+  );
+  transform: translateX(-58%) skewX(-12deg);
+  animation: image-shine-pass 760ms ease-out forwards;
+}
+
+@keyframes image-shine-pass {
+  to {
+    transform: translateX(58%) skewX(-12deg);
+  }
 }
 
 .dion-hero {
@@ -382,9 +476,10 @@ h3 {
 }
 
 .side-meta {
-  position: fixed;
+  --side-meta-sticky-top: 56px;
+  position: absolute;
   left: calc(50% - 515px);
-  top: 56px;
+  top: var(--side-meta-top, 0);
   width: 123px;
   display: flex;
   flex-direction: column;
@@ -401,6 +496,17 @@ h3 {
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease;
+}
+
+.side-meta.is-positioned,
+.side-meta.is-sticky {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.side-meta.is-sticky {
+  position: fixed;
+  top: var(--side-meta-sticky-top);
 }
 
 .side-meta.is-visible {
@@ -464,23 +570,25 @@ h3 {
   }
 
   .brand {
-    height: 150px;
-    --portrait-drop-max: 88px;
+    width: 100%;
+    height: clamp(112px, 26.8vw, 195px);
+    --portrait-drop-max: 110vw;
   }
 
   .portrait {
-    top: -28px;
-    width: 56px;
-    height: 64px;
-    border-radius: 22px;
+    top: calc(32% - 13.6vw);
+    left: 38.65%;
+    width: 9.6%;
+    height: auto;
+    border-radius: 42%;
   }
 
   .wordmark {
     position: absolute;
     left: 0;
-    top: 48px;
-    width: 709px;
-    max-width: none;
+    top: 32%;
+    width: 100%;
+    max-width: 100%;
     height: auto;
   }
 

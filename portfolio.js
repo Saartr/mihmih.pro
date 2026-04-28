@@ -1,7 +1,7 @@
 (() => {
   const brand = document.querySelector('.brand');
   const portrait = document.querySelector('.portrait');
-  const firstProjectCopy = document.querySelector('.project-copy');
+  const firstProjectTitle = document.querySelector('.project-copy h3');
   const sideMeta = document.querySelector('.side-meta');
   const sideCompanyText = document.querySelector('[data-side-company-text]');
   const sideYearsText = document.querySelector('[data-side-years-text]');
@@ -9,23 +9,117 @@
   const lightbox = document.querySelector('[data-lightbox]');
   const lightboxImage = document.querySelector('[data-lightbox-image]');
   const closeButton = document.querySelector('[data-close]');
-  const images = document.querySelectorAll('.page img, .monopoly img');
+  const images = document.querySelectorAll('.page img:not(.portrait):not(.wordmark), .monopoly img');
   const cursor = document.querySelector('[data-cursor]');
   const cursorTargets = document.querySelectorAll('a, button, img, [role="button"]');
+  let sideMetaStart = 0;
+
+  const placeImageSkeleton = (image, skeleton) => {
+    const rect = image.getBoundingClientRect();
+    const styles = getComputedStyle(image);
+
+    skeleton.style.left = `${Math.round(rect.left + window.scrollX)}px`;
+    skeleton.style.top = `${Math.round(rect.top + window.scrollY)}px`;
+    skeleton.style.width = `${Math.round(rect.width)}px`;
+    skeleton.style.height = `${Math.round(rect.height)}px`;
+    skeleton.style.borderRadius = styles.borderRadius;
+  };
+
+  images.forEach((image) => {
+    image.classList.add('image-loading');
+    const skeleton = document.createElement('span');
+
+    skeleton.className = 'image-skeleton';
+    document.body.appendChild(skeleton);
+    placeImageSkeleton(image, skeleton);
+    image._skeleton = skeleton;
+
+    const markLoaded = () => {
+      image.classList.remove('image-loading');
+      image.classList.add('image-loaded');
+      skeleton.remove();
+      delete image._skeleton;
+    };
+
+    if (image.complete) {
+      markLoaded();
+    } else {
+      image.addEventListener('load', markLoaded, { once: true });
+      image.addEventListener('error', markLoaded, { once: true });
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    images.forEach((image) => {
+      if (image._skeleton) {
+        placeImageSkeleton(image, image._skeleton);
+      }
+    });
+  });
 
   if (cursor && window.matchMedia('(pointer: fine)').matches) {
+    const trailLength = 9;
+    const trail = Array.from({ length: trailLength }, (_, index) => {
+      const dot = document.createElement('span');
+      dot.className = 'cursor-trail-dot';
+      dot.style.setProperty('--trail-index', index);
+      document.body.appendChild(dot);
+      return {
+        element: dot,
+        x: -100,
+        y: -100,
+      };
+    });
+
+    let pointerX = -100;
+    let pointerY = -100;
+    let isCursorVisible = false;
+
+    const renderTrail = () => {
+      let targetX = pointerX;
+      let targetY = pointerY;
+
+      trail.forEach((dot, index) => {
+        const ease = 0.32 - index * 0.018;
+        dot.x += (targetX - dot.x) * ease;
+        dot.y += (targetY - dot.y) * ease;
+        dot.element.style.transform = `translate(${dot.x - 12}px, ${dot.y - 12}px)`;
+
+        targetX = dot.x;
+        targetY = dot.y;
+      });
+
+      requestAnimationFrame(renderTrail);
+    };
+
+    requestAnimationFrame(renderTrail);
+
     window.addEventListener('pointermove', (event) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      isCursorVisible = true;
       cursor.classList.add('is-visible');
-      cursor.style.transform = `translate(${event.clientX - 16}px, ${event.clientY - 16}px)`;
+      trail.forEach((dot) => dot.element.classList.add('is-visible'));
+      cursor.style.transform = `translate(${pointerX - 12}px, ${pointerY - 12}px)`;
     }, { passive: true });
 
     document.addEventListener('pointerleave', () => {
+      isCursorVisible = false;
       cursor.classList.remove('is-visible');
+      trail.forEach((dot) => dot.element.classList.remove('is-visible'));
     });
 
     cursorTargets.forEach((target) => {
-      target.addEventListener('pointerenter', () => cursor.classList.add('is-active'));
-      target.addEventListener('pointerleave', () => cursor.classList.remove('is-active'));
+      target.addEventListener('pointerenter', () => {
+        cursor.classList.add('is-active');
+        if (isCursorVisible) {
+          trail.forEach((dot) => dot.element.classList.add('is-active'));
+        }
+      });
+      target.addEventListener('pointerleave', () => {
+        cursor.classList.remove('is-active');
+        trail.forEach((dot) => dot.element.classList.remove('is-active'));
+      });
     });
   }
 
@@ -43,14 +137,26 @@
   window.addEventListener('scroll', updatePortrait, { passive: true });
   window.addEventListener('resize', updatePortrait);
 
-  const updateSideMeta = () => {
-    if (!firstProjectCopy || !sideMeta) return;
+  const updateSideMetaPosition = () => {
+    if (!firstProjectTitle || !sideMeta) return;
 
-    const start = firstProjectCopy.getBoundingClientRect().top + window.scrollY;
-    sideMeta.classList.toggle('is-visible', window.scrollY >= start);
+    const titleTop = firstProjectTitle.getBoundingClientRect().top + window.scrollY;
+    sideMetaStart = titleTop;
+    sideMeta.style.setProperty('--side-meta-top', `${Math.round(titleTop)}px`);
+    sideMeta.classList.add('is-positioned');
+  };
+
+  updateSideMetaPosition();
+  window.addEventListener('resize', updateSideMetaPosition);
+
+  const updateSideMeta = () => {
+    if (!sideMeta) return;
+    const stickyTop = parseFloat(getComputedStyle(sideMeta).getPropertyValue('--side-meta-sticky-top')) || 56;
+
+    sideMeta.classList.toggle('is-sticky', window.scrollY >= sideMetaStart - stickyTop);
 
     const active = sideMetaSections
-      .filter((section) => section.getBoundingClientRect().top <= 80)
+      .filter((section) => section.getBoundingClientRect().top <= stickyTop + 24)
       .at(-1);
 
     if (active && sideCompanyText && sideYearsText) {
@@ -80,7 +186,23 @@
     document.body.style.overflow = '';
   };
 
+  const runImageShine = (image) => {
+    const rect = image.getBoundingClientRect();
+    const shine = document.createElement('span');
+    const styles = getComputedStyle(image);
+
+    shine.className = 'image-shine';
+    shine.style.left = `${Math.round(rect.left + window.scrollX)}px`;
+    shine.style.top = `${Math.round(rect.top + window.scrollY)}px`;
+    shine.style.width = `${Math.round(rect.width)}px`;
+    shine.style.height = `${Math.round(rect.height)}px`;
+    shine.style.borderRadius = styles.borderRadius;
+    document.body.appendChild(shine);
+    shine.addEventListener('animationend', () => shine.remove(), { once: true });
+  };
+
   images.forEach((image) => {
+    image.addEventListener('pointerenter', () => runImageShine(image));
     image.addEventListener('click', () => open(image));
   });
 
