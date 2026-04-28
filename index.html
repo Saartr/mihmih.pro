@@ -26,8 +26,10 @@
 <body>
   <main class="page" id="top">
     <section class="intro hero">
-      <img class="hero-grid" src="assets/hero-grid.svg" width="526" height="301" alt="">
-      <h1 class="hero-title">CV &amp; PORTFOLIO</h1>
+      <div class="hero-heading">
+        <h1 class="hero-title">CV &amp; PORTFOLIO</h1>
+        <span class="hero-caret" aria-hidden="true"></span>
+      </div>
       <div class="hero-dragger">
         <div class="hero-year" aria-label="2026">
           <span class="hero-year-tag"><span class="hero-year-text">2026</span></span>
@@ -51,129 +53,350 @@
       </div>
     </section>
 
-    <section class="section narrow">
-      <h2>Опыт работы</h2>
-      <ul class="experience">
-        <li><b>Руководитель отдела проектирования,</b> <span>Т1 · НОТА, 2023 — наст.</span></li>
-        <li><b>Ведущий дизайнер,</b> <span>Т1 · НОТА · Юнион, 2022 — 2023</span></li>
-        <li><b>Senior UX/UI Designer,</b> <span>ГК Монополия, 2020 — 2021</span></li>
-        <li><b>Lead UX/UI Designer,</b> <span>F2FGroup · AUTHOR24, 2019</span></li>
-        <li><b>Lead UX/UI Designer,</b> <span>Devim, 2017 — 2019</span></li>
-        <li><b>Product Designer,</b> <span>MAJOR, 2014 — 2017</span></li>
-        <li><b>Фриланс и проектная работа,</b> <span>Intitle и др., 2009 — 2013</span></li>
-      </ul>
+    <section class="section experience-section" id="experience">
+      <h2>Опыт</h2>
+      <div class="experience-layout">
+        <aside class="experience-aside" aria-hidden="true">
+          <span class="experience-date date-2023">2023 — *</span>
+          <span class="experience-date date-2022">2022 — 2023</span>
+          <span class="experience-date date-2020">2020 — 2021</span>
+          <span class="experience-date date-2019">2019</span>
+          <span class="experience-date date-2017">2017 — 2019</span>
+          <span class="experience-date date-2014">2014 — 2017</span>
+          <span class="experience-date date-2009">2009 — 2013</span>
+
+          <img class="timeline-logo logo-t1" src="assets/timeline-t1.svg" width="87" height="54" alt="">
+          <img class="timeline-logo logo-union" src="assets/timeline-union.svg" width="130" height="57" alt="">
+          <img class="timeline-logo logo-monopoly" src="assets/timeline-monopoly.svg" width="226" height="56" alt="">
+          <img class="timeline-logo logo-151eye" src="assets/timeline-151eye.svg" width="100" height="57" alt="">
+          <span class="timeline-devim-logo">
+            <img src="assets/timeline-devim.svg" width="33" height="26" alt="">
+          </span>
+
+          <span class="timeline-line line-1"></span>
+          <span class="timeline-line line-2"></span>
+          <span class="timeline-line line-3"></span>
+          <span class="timeline-line line-4"></span>
+          <span class="timeline-line line-5"></span>
+          <span class="timeline-line line-6"></span>
+          <img class="timeline-dot dot-1" src="assets/timeline-dot.svg" width="12" height="12" alt="">
+          <img class="timeline-dot dot-2" src="assets/timeline-dot.svg" width="12" height="12" alt="">
+          <img class="timeline-dot dot-3" src="assets/timeline-dot.svg" width="12" height="12" alt="">
+          <img class="timeline-dot dot-4" src="assets/timeline-dot.svg" width="12" height="12" alt="">
+          <img class="timeline-dot dot-5" src="assets/timeline-dot.svg" width="12" height="12" alt="">
+          <img class="timeline-dot dot-6" src="assets/timeline-dot.svg" width="12" height="12" alt="">
+        </aside>
+        <ul class="experience">
+          <li>
+            <p class="experience-role">Руководитель отдела проектирования | Т1</p>
+            <p>По итогам успешной работы в продукте НОТА Юнион получил повышение до руководителя отдела проектирования в вендоре НОТА (Компания Т1).</p>
+            <p>Контроль работы других проектировщиков, организация отдела, разработка общей дизайн-системы для нескольких продуктов, аттестация/найм сотрудников в отдел проектирования, внедрение новых инструментов при работе с графикой (Pixso), организация стажировки.</p>
+          </li>
+          <li>
+            <p class="experience-role">Ведущий дизайнер | Т1 (Иннотех, продукт Юнион)</p>
+            <p>Трансформация текущей версии под актуальные запросы рынка и современные стандарты UX/UI, создание интерактивных прототипов и проведение тестирований интерфейса на фокус-группах (рекрутеры и нанимающие менеджеры) для валидации решений, организация сбора обратной связи от заказчиков и проверка продуктовых гипотез, выстраивание и оптимизация процессов проектирования внутри команды, менторство и контроль качества визуальных решений.</p>
+            <p>Успешный перезапуск: в 2023 году полностью завершил редизайн продукта на базе новой дизайн-системы. Улучшение метрик команды и продукта (Время закрытие задач +42%, рост NPS +68%).</p>
+            <p>Design-to-Code: синхронизировал работу дизайна и разработки, внедрив Storybook с актуальной библиотекой компонентов из Figma (сократило время на разработку интерфейсов и убрало энтропию в дизайне продукта).</p>
+          </li>
+          <li>
+            <p class="experience-role">Senior UX/UI Designer | ГК Монополия</p>
+            <p>Развитие текущей дизайн-системы, разработка нового продуктового функционала, генерация продуктовых идей для платформы грузоперевозок.</p>
+          </li>
+          <li>
+            <p class="experience-role">Lead UX/UI Designer | F2FGroup</p>
+            <p>Отвечал за полный цикл дизайн-работ: от первичной идеи, продуктовой логики и пользовательских сценариев до интерфейсов, прототипов, дизайн-системы и сопровождения реализации в разработке.</p>
+          </li>
+          <li>
+            <p class="experience-role">Lead UX/UI Designer | Devim</p>
+            <p>Финтех-проекты: реализация полного цикла от сбора требований до запуска продуктов.</p>
+          </li>
+          <li>
+            <p class="experience-role">Product Designer | MAJOR</p>
+            <p>Разработка нового продуктового функционала, генерация продуктовых идей для автомобильной тематики.</p>
+          </li>
+          <li>
+            <p class="experience-role">Фриланс и проектная работа</p>
+          </li>
+        </ul>
+      </div>
     </section>
 
-    <section class="section project" data-side-company="Т1 · НОТА," data-side-years="2023 — наст.">
-      <h2>Избранные проекты</h2>
-      <article class="project-copy">
+    <section class="section project" id="projects" data-side-company="Т1 · НОТА," data-side-years="2023 — наст.">
+      <h2>проекты</h2>
+      <aside class="project-side-meta dion-side-meta" aria-label="DION metadata">
+        <a href="https://diongo.ru/" target="_blank" rel="noopener">DIONGO.RU</a>
+        <span><b>10K+</b> участников ВКС</span>
+        <span><b>8+</b> внутренних продуктов</span>
+      </aside>
+      <article class="project-copy dion-copy">
         <h3>DION — платформа корпоративных коммуникаций</h3>
         <p>Унифицированная платформа коммуникаций холдинга Т1: видеоконференции до 10 000 участников, корпоративный мессенджер, бронирование переговорных, видеохостинг, звонки. Работал над дизайн-системой продукта и ключевыми сценариями ВКС, чатов и DION.Rooms — от десктоп и веб-клиентов до мобильных приложений. Фокус на стабильности интерфейса при слабых каналах связи, простоте onboarding и соответствии корпоративным требованиям к безопасности (on-prem, SSO, DLP).</p>
-        <div class="meta">
-          <a href="https://diongo.ru/" target="_blank" rel="noopener">DIONGO.RU</a>
-          <span><b>10K+</b> участников ВКС</span>
-          <span><b>5+</b> внутренних продуктов</span>
-        </div>
       </article>
 
-      <div class="media media-wide dion-hero">
-        <img loading="lazy" src="assets/dion-hero.png" width="1758" height="1011" alt="DION интерфейс видеоконференции">
+      <div class="media-grid dion-cards">
+        <img loading="lazy" src="assets/dion-card-video.png" width="352" height="352" alt="DION корпоративная видеосеть">
+        <img loading="lazy" src="assets/dion-card-chat.png" width="352" height="352" alt="DION чаты и конференции">
       </div>
 
-      <div class="media-grid four">
-        <img loading="lazy" src="assets/dion-1.png" width="1200" height="1200" alt="DION экран 1">
-        <img loading="lazy" src="assets/dion-2.png" width="1200" height="1200" alt="DION экран 2">
-        <img loading="lazy" src="assets/dion-3.png" width="1200" height="1200" alt="DION экран 3">
-        <img loading="lazy" src="assets/dion-4.png" width="1200" height="1200" alt="DION экран 4">
+      <div class="media dion-platforms">
+        <img loading="lazy" src="assets/dion-platforms.png" width="1834" height="80" alt="DION платформы">
+      </div>
+
+      <div class="dion-split">
+        <div class="case-text">
+          <p>Много продуктовой работы. Более 50+ рабочих файлов по продукту в фигме. К сожалению, не могу показывать детальнее продуктовые макеты.</p>
+          <p>Отвечал за работу дизайн-команды: выстраивал процессы проектирования, синхронизировал дизайнеров с продуктом и разработкой, контролировал сроки и качество задач, проводил регулярные дизайн-ревью и помогал команде принимать системные UX/UI-решения.</p>
+        </div>
+        <div class="media dion-workfiles">
+          <img loading="lazy" src="assets/dion-workfiles.png" width="721" height="414" alt="Рабочие файлы DION в Figma">
+        </div>
+      </div>
+
+      <div class="media dion-conference">
+        <img loading="lazy" src="assets/dion-conference.png" width="1172" height="674" alt="DION интерфейс видеоконференции">
+      </div>
+
+      <div class="case-text case-process">
+        <p>Основные этапы работы дизайнера над продуктовой задачей</p>
+        <p><strong>ИССЛЕДОВАНИЯ</strong> Глубинные интервью / CJM</p>
+        <p><strong>АНАЛИТИКА</strong> Информационная архитектура / Конкурентный анализ</p>
+        <p><strong>ПРОЕКТИРОВАНИЕ</strong> User flow / Пользовательские сценарии / Структура интерфейса / Прототипы</p>
+        <p><strong>ВИЗУАЛЬНЫЙ ДИЗАЙН</strong> UI-макеты / Компоненты / Состояния экранов / Адаптивность / Работа с дизайн-системой</p>
+        <p><strong>ТЕСТИРОВАНИЕ</strong> Дизайн-ревью / Юзабилити-тестирование</p>
+        <p><strong>ПЕРЕДАЧА В РАЗРАБОТКУ</strong> Подготовка макетов / Описание логики / Спецификации / Ответы разработчикам / Контроль реализации</p>
+        <p><strong>АНАЛИЗ ПОСЛЕ ЗАПУСКА</strong> A/B-тестирования / Сбор обратной связи</p>
       </div>
     </section>
 
     <section class="section project" data-side-company="Т1 · НОТА," data-side-years="2023-2021">
-      <article class="project-copy">
+      <aside class="project-side-meta union-side-meta" aria-label="Union metadata">
+        <a href="https://nota.tech/products/union" target="_blank" rel="noopener">nota.tech/products/union</a>
+        <span><b>5+</b> Крупных внедрений</span>
+      </aside>
+      <article class="project-copy case-copy">
         <h3>НОТА Юнион — cистема автоматизации подбора персонала</h3>
-        <p>Трансформация существующей версии под актуальные запросы рынка. Полностью завершил редизайн на базе новой дизайн-системы, от внедрения <b></b><a href="https://www.figma.com/proto/TeRc0tWmGYcNBCUer1LEIO/%D0%A2%D0%B5%D0%BA%D1%81%D1%82-%D0%B2-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B5?node-id=18-4500&viewport=6865%2C274%2C0.39&t=6fIX59l41ZNQUzpB-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=18%3A4500&page-id=0%3A1" target="_blank" rel="noopener">правил копирайтинга (могу даже ссылочку оставить)</a></b> до внедрения Storybook с актуальной библиотекой компонентов из Figma — это убрало энтропию между дизайном и разработкой и сократило время разработки. Прототипы и тестирования на фокус-группах для валидации решений. Вывели продукт на конкурентный уровень среди ведущих ATS-систем РФ.</p>
-        <div class="meta">
-          <a href="https://nota.tech/products/union" target="_blank" rel="noopener">nota.tech/products/union</a>
-          <span><b>7+</b> крупных клиентов</span>
-          <span><b>топ 10</b> лидеров рынка</span>
-        </div>
+        <p>HRTech-платформа для автоматизации подбора персонала и управления рекрутинговыми процессами. Продукт помогает HR-командам и рекрутерам вести кандидатов по воронке, работать с вакансиями, согласованиями, коммуникациями и аналитикой в едином интерфейсе.</p>
       </article>
 
-      <div class="media media-xl">
-        <img loading="lazy" src="assets/union-main.png" width="1920" height="1257" alt="НОТА Юнион главный экран">
+      <div class="media union-main-case">
+        <img loading="lazy" src="assets/union-main-new.png" width="1920" height="1257" alt="НОТА Юнион главный экран">
       </div>
-      <div class="media-grid union">
-        <img loading="lazy" src="assets/union-1.png" width="1920" height="1080" alt="НОТА Юнион экран 1">
-        <img loading="lazy" src="assets/union-2.png" width="1920" height="1080" alt="НОТА Юнион экран 2">
-        <img loading="lazy" src="assets/union-3.png" width="1920" height="1080" alt="НОТА Юнион экран 3">
-        <img loading="lazy" src="assets/union-4.png" width="1920" height="1080" alt="НОТА Юнион экран 4">
+      <div class="media-grid union-previews">
+        <img loading="lazy" src="assets/union-preview-1.png" width="1920" height="1080" alt="НОТА Юнион экран 1">
+        <img loading="lazy" src="assets/union-preview-2.png" width="1920" height="1080" alt="НОТА Юнион экран 2">
+        <img loading="lazy" src="assets/union-preview-3.png" width="1920" height="1080" alt="НОТА Юнион экран 3">
+        <img loading="lazy" src="assets/union-preview-4.png" width="1920" height="1080" alt="НОТА Юнион экран 4">
       </div>
-      <div class="media panorama">
-        <img loading="lazy" src="assets/union-strip.png" width="3370" height="369" alt="НОТА Юнион длинная панель">
+
+      <div class="case-text">
+        <p>Трансформация существующей версии под актуальные запросы рынка. Полностью завершил редизайн на базе новой дизайн-системы, написал правила для копирайтинга, внедрил Storybook с актуальной библиотекой компонентов из Figma — это убрало энтропию между дизайном и разработкой и сократило время разработки. Прототипы и тестирования на фокус-группах для валидации решений.</p>
+      </div>
+
+      <div class="media union-copywriting">
+        <img loading="lazy" src="assets/union-copywriting.png" width="1366" height="720" alt="Редакционная политика НОТА Юнион">
+      </div>
+      <div class="figma-link-group">
+        <p>По ссылке редакционная политика для Юнион (В прошлом Talentforce)</p>
+        <a class="figma-button" href="https://www.figma.com/proto/TeRc0tWmGYcNBCUer1LEIO/%D0%A2%D0%B5%D0%BA%D1%81%D1%82-%D0%B2-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B5?node-id=18-4500&viewport=6865%2C274%2C0.39&t=6fIX59l41ZNQUzpB-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=18%3A4500&page-id=0%3A1" target="_blank" rel="noopener">
+          <img class="inline-icon" src="assets/figma-logo.svg" width="11" height="16" alt="">
+          <span>Открыть в Figma</span>
+        </a>
+      </div>
+
+      <div class="case-text">
+        <p>При редизайне были созданы унифицированные шаблоны для ведения веб-компонентов и передачи их в разработку.</p>
+      </div>
+
+      <div class="media union-snackbar">
+        <img loading="lazy" src="assets/union-snackbar.png" width="2353" height="1591" alt="Шаблоны веб-компонентов НОТА Юнион">
+      </div>
+
+      <div class="union-split">
+        <div class="media union-branching">
+          <img loading="lazy" src="assets/union-branching.png" width="813" height="1240" alt="Процесс ветвления в Figma">
+        </div>
+        <div class="case-text">
+          <p>Изначально контроль версий был выстроен через branches в Figma, но после перехода на тариф без поддержки полноценного ветвления я предложил альтернативный процесс. Мы организовали рабочую схему через отдельные pages: дизайнеры могли прорабатывать изменения изолированно, не затрагивая основную библиотеку и актуальные продуктовые макеты.</p>
+        </div>
+      </div>
+
+      <div class="case-text">
+        <p>После ревью изменения переносились в основной page — вручную или через самописный плагин, если обновления не затрагивали сложные состояния, существующие фреймы и связанные сценарии. Такой подход позволил сохранить управляемость изменений, снизить риск случайных правок в мастер-файлах и поддерживать порядок в дизайн-системе даже без полноценного branch-based workflow.</p>
+      </div>
+
+      <div class="figma-link-group">
+        <p>Для пресейла, а так же демо собирал различные динамические прототипы.</p>
+        <a class="figma-button" href="https://www.figma.com/proto/LIg3taIeiQCDJZMQOuh4ea/%D0%94%D0%BB%D1%8F-%D0%BF%D1%80%D0%B5%D1%81%D0%B5%D0%B9%D0%BB%D0%B0?node-id=1-9387&p=f&viewport=514%2C521%2C0.15&t=JUjw3iqlEJX1I7u8-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A9300&page-id=0%3A1" target="_blank" rel="noopener">
+          <img class="inline-icon" src="assets/figma-logo.svg" width="11" height="16" alt="">
+          <span>Открыть в Figma</span>
+        </a>
+      </div>
+
+      <div class="case-text">
+        <p>Помимо работы над CORE-версией продукта, я участвовал в сопровождении уже внедрённых версий НОТА Юнион у заказчиков. Помогал собирать и анализировать обратную связь, прорабатывать доработки под специфику бизнес-процессов конкретных компаний и адаптировать интерфейсные решения под реальные сценарии использования.</p>
+        <p>Отдельной частью работы были глубинные интервью с рекрутерами на стороне заказчиков. Через них мы выявляли боли в текущем пользовательском опыте, находили проблемные места в сценариях подбора и формировали гипотезы для улучшения продукта.</p>
+      </div>
+
+      <div class="union-interviews">
+        <div class="media">
+          <img loading="lazy" src="assets/union-interview-1.png" width="813" height="1090" alt="Интервью и сценарии НОТА Юнион">
+        </div>
+        <div class="media">
+          <img loading="lazy" src="assets/union-interview-2.png" width="1779" height="1273" alt="Карточка кандидата НОТА Юнион">
+        </div>
+      </div>
+
+      <div class="case-text">
+        <p>По результатам глубинных интервью с рекрутерами заказчиков был переработан один из ключевых CORE-сценариев продукта. Основная цель — сместить фокус внимания рекрутера на наиболее важные действия и данные, снизить визуальную перегрузку интерфейса и сделать сценарий удобнее для работы на небольших viewport. Убрали боковую панель с двумя состояниями (Вакансии на рассмотрении/Этапы подбора) и сделали 1 блок внутри карточки кандидата. После переработки сценария мы получили заметный рост удовлетворённости пользователей и перенесли данные изменения в ванильную версию продукта :)</p>
       </div>
     </section>
 
     <section class="section project" data-side-company="Монополия," data-side-years="2020 — 2021">
-      <article class="project-copy">
+      <aside class="project-side-meta monopoly-side-meta" aria-label="Monopoly metadata">
+        <a href="https://monopoly.online/" target="_blank" rel="noopener">monopoly.online</a>
+      </aside>
+      <article class="project-copy case-copy">
         <h3>Платформа грузоперевозок Монополия</h3>
         <p>Развитие новой дизайн-системы и продуктового функционала. Генерация продуктовых идей для платформы, валидация решений через прототипы и фокус-группы. Работа с тяжёлыми операционными интерфейсами для логистов и водителей.</p>
-        <div class="meta"><a href="https://monopoly.online" target="_blank" rel="noopener">monopoly.online</a></div>
       </article>
-      <div class="monopoly">
-        <img loading="lazy" class="circle circle-main" src="assets/monopoly-main.png" width="1464" height="4096" alt="Монополия интерфейс">
-        <img loading="lazy" class="circle circle-side" src="assets/monopoly-side.png" width="2680" height="1536" alt="Монополия карта">
+      <div class="media monopoly-case">
+        <img loading="lazy" src="assets/monopoly-main-new.png" width="756" height="758" alt="Платформа грузоперевозок Монополия">
       </div>
     </section>
 
     <section class="section project devim" data-side-company="Devim," data-side-years="2017 — 2019">
-      <article class="project-copy">
+      <article class="project-copy case-copy">
         <h3>Финтех-продукты Devim</h3>
-        <p>Реализация полного цикла от сбора требований до запуска продуктов. Менеджмент UX/UI-команды. Заказчики: МТС, Сбербанк (POS-терминалы), CashWagon, До зарплаты. Высокая планка по комплаенсу и качеству форм.</p>
-        <div class="meta"><a href="https://devim.team" target="_blank" rel="noopener">devim.team</a></div>
+        <p>Реализация полного цикла от сбора требований до запуска продуктов. Менеджмент UX/UI-команды. Заказчики: МТС, Сбербанк (POS-терминалы), CashWagon, До зарплаты.</p>
       </article>
-      <div class="media-grid devim-cards">
-        <img loading="lazy" src="assets/devim-1.png" width="800" height="600" alt="Devim экран 1">
-        <img loading="lazy" src="assets/devim-2.png" width="800" height="600" alt="Devim экран 2">
-        <img loading="lazy" src="assets/devim-3.png" width="800" height="600" alt="Devim экран 3">
+      <div class="media-grid devim-cards-new">
+        <img loading="lazy" src="assets/devim-card-1.png" width="800" height="600" alt="Devim визуальная айдентика">
+        <img loading="lazy" src="assets/devim-card-2.png" width="800" height="600" alt="Devim мобильные интерфейсы">
       </div>
-      <div class="media layered">
-        <img loading="lazy" class="layer-back" src="assets/devim-dark.png" width="1920" height="948" alt="Devim тёмная схема">
-        <img loading="lazy" class="layer-front" src="assets/devim-light.png" width="1280" height="720" alt="Devim светлая схема">
+
+      <div class="case-text">
+        <p>Одной из моих задач было проектирование профессионального инструмента для трейдинга. Главный вызов заключался в том, что интерфейс должен был одновременно поддерживать высокую скорость работы, точность действий и удобство при большом объёме данных.</p>
+        <p>При проектировании было важно учитывать реальные сценарии трейдеров: быстрый доступ к ключевым операциям, понятную структуру информации, минимальное количество лишних действий и устойчивость интерфейса к высокой когнитивной нагрузке.</p>
+      </div>
+
+      <div class="media devim-layered-new">
+        <img loading="lazy" class="devim-layer-dark" src="assets/devim-trading-dark.png" width="1280" height="633" alt="Devim трейдинг dark scheme">
+        <img loading="lazy" class="devim-layer-light" src="assets/devim-trading-light.png" width="1280" height="720" alt="Devim трейдинг light scheme">
+      </div>
+
+      <div class="media-grid devim-small-screens">
+        <img loading="lazy" src="assets/devim-shortcuts.png" width="1920" height="948" alt="Devim keyboard shortcuts">
+        <img loading="lazy" src="assets/devim-add-object.png" width="1920" height="948" alt="Devim add object modal">
+      </div>
+
+      <div class="case-text">
+        <p>Одной из моих задач было проектирование профессионального инструмента для трейдинга. Главный вызов заключался в том, что интерфейс должен был одновременно поддерживать высокую скорость работы, точность действий и удобство при большом объёме данных.</p>
+        <p>При проектировании было важно учитывать реальные сценарии трейдеров: быстрый доступ к ключевым операциям, понятную структуру информации, минимальное количество лишних действий и устойчивость интерфейса к высокой когнитивной нагрузке.</p>
+      </div>
+
+      <div class="media devim-full-screen">
+        <img loading="lazy" src="assets/devim-trading-light.png" width="1280" height="720" alt="Devim трейдинг полный экран">
+      </div>
+
+      <div class="case-text">
+        <p>Одной из важных особенностей проекта была адаптация интерфейса под небольшие экраны, в том числе MacBook. Для трейдерского инструмента это было критично: пользователю нужно видеть много данных одновременно, быстро считывать состояние рынка и не терять доступ к ключевым действиям.</p>
+        <p>Чтобы сохранить удобство работы в ограниченном пространстве, была предусмотрена кастомная настройка размеров секций. Пользователь мог самостоятельно менять пропорции рабочих областей, подстраивая интерфейс под свой сценарий, приоритеты и привычный стиль торговли.</p>
       </div>
     </section>
 
     <section class="section project" data-side-company="Архив," data-side-years="5+ лет назад">
-      <article class="project-copy">
+      <article class="project-copy case-copy">
         <h3>Все подряд</h3>
-        <p>Дальше идут небольшие и старые работы (5 и более лет назад)</p>
+        <p>Дальше идут небольшие и старые работы (5 и более лет назад). Если будут какие-то вопросы, то всегда с радостью отвечу на них.</p>
       </article>
-      <div class="media old old-wide">
-        <img loading="lazy" src="assets/old-1920.png" width="1640" height="2583" alt="Старая работа 1920">
+
+      <div class="archive-top-grid">
+        <img loading="lazy" src="assets/archive-list-1.png" width="1366" height="1920" alt="Макет 151EYE список 1">
+        <img loading="lazy" src="assets/archive-list-2.png" width="1366" height="1276" alt="Макет 151EYE список 2">
+        <img loading="lazy" src="assets/archive-desk-wallpaper.png" width="2560" height="1600" alt="151EYE desk wallpaper">
       </div>
-      <div class="old-stack">
-        <img loading="lazy" src="assets/old-desk.png" width="2560" height="1600" alt="Обои">
-        <img loading="lazy" src="assets/old-list-1.png" width="1366" height="1920" alt="Список 1">
-        <img loading="lazy" src="assets/old-list-2.png" width="1366" height="1276" alt="Список 2">
+
+      <div class="case-caption">Макеты для 151EYE</div>
+
+      <div class="archive-bottom-grid">
+        <img loading="lazy" src="assets/archive-studybay.png" width="1640" height="2583" alt="Спецпроект Studybay">
+        <div class="archive-escape">
+          <img loading="lazy" src="assets/archive-escape.png" width="1016" height="4096" alt="Лендинг для друзей">
+        </div>
       </div>
-      <div class="media old main-old">
-        <img loading="lazy" src="assets/old-main.png" width="1016" height="4096" alt="Длинная старая работа">
-      </div>
+
+      <div class="case-caption">Спецпроект для компании Studybay и лендинг для своих друзей</div>
     </section>
 
-    <footer class="footer">
-      <a href="https://t.me/saartr" target="_blank" rel="noopener">Telegram</a>
-      <a href="https://www.linkedin.com/in/saartr/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.behance.net/saartr" target="_blank" rel="noopener">Behance</a>
-      <a href="https://github.com/Saartr/mihmih.pro" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://spb.hh.ru/resume/c5346b50ff05c0d59c0039ed1f4d75697a5553" target="_blank" rel="noopener">HeadHunter CV</a>
-    </footer>
+    <section class="section about-section" id="about">
+      <h2>Обо мне 🙈</h2>
+      <div class="about-intro-row">
+        <img loading="lazy" src="assets/about-avatar.png" width="101" height="115" alt="Михаил Скворцов">
+        <p>Живу в Питере. Получил высшее образование в Политехе на кафедре информационного дизайна по специальности «Прикладная информатика в дизайне».</p>
+      </div>
+      <div class="case-text">
+        <p>Вне работы я много времени провожу за компьютером — люблю игры, железо и всё, что связано с настройкой своего рабочего места. Из игр особенно близки <strong>Dota 2 😂, Slay the Spire, Balatro</strong> и ещё много всего из разных жанров. Когда-то даже играл в Battlefield 3 на ESL за немецкий мультигейминг RAGE.eSports — так что любовь к командной игре, скорости реакции и системному мышлению у меня началась не только в дизайне.</p>
+      </div>
+      <div class="about-games-grid">
+        <img loading="lazy" src="assets/about-game-dota.png" width="500" height="500" alt="Dota 2">
+        <img loading="lazy" src="assets/about-game-slay.png" width="500" height="500" alt="Slay the Spire">
+        <img loading="lazy" src="assets/about-game-balatro.png" width="500" height="500" alt="Balatro">
+      </div>
+      <div class="case-text">
+        <p>Дома у меня две замечательные собаки — лабрадор и ретривер + кот + кошка. А ещё я люблю аниме и сериалы: от <strong>«Стального алхимика», «Мастера Муши», «Евангелиона» и «Технолайза» до Better Call Saul, Breaking Bad, «Настоящего детектива», «Игры престолов» и «Неуязвимого»</strong>.</p>
+      </div>
+      <div class="about-pets-grid">
+        <img loading="lazy" src="assets/about-pet-1.png" width="300" height="300" alt="">
+        <img loading="lazy" src="assets/about-pet-2.png" width="300" height="300" alt="">
+        <img loading="lazy" src="assets/about-pet-3.png" width="300" height="300" alt="">
+        <img loading="lazy" src="assets/about-pet-4.png" width="300" height="300" alt="">
+        <img loading="lazy" src="assets/about-pet-5.png" width="300" height="300" alt="">
+      </div>
+      <div class="about-anime-grid">
+        <img loading="lazy" src="assets/about-anime-1.png" width="500" height="879" alt="Hell's Paradise">
+        <img loading="lazy" src="assets/about-anime-2.png" width="500" height="879" alt="Fullmetal Alchemist">
+        <img loading="lazy" src="assets/about-anime-3.png" width="500" height="879" alt="Evangelion">
+      </div>
+      <div class="case-text">
+        <p>Ещё мне интересно <strong>программирование и вайбкодинг</strong>: люблю пробовать новые инструменты, собирать небольшие проекты, автоматизировать бытовые вещи и разбираться, как всё работает под капотом. Отдельное увлечение — Home Assistant и умный дом: сценарии, автоматизации, датчики, интеграции и вся эта приятная магия, когда дом начинает вести себя чуть умнее.</p>
+      </div>
+
+      <div class="contact-list" id="contacts">
+        <a class="contact-item" href="https://t.me/saartr" target="_blank" rel="noopener">
+          <span>TELEGRAM</span>
+          <p>Ну тут все понятно</p>
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/saartr/" target="_blank" rel="noopener">
+          <span>LINKEDIN</span>
+          <p>Есть рекомендации на меня и какие-то рабочие публикации</p>
+        </a>
+        <a class="contact-item" href="https://www.behance.net/saartr" target="_blank" rel="noopener">
+          <span>BEHANCE</span>
+          <p>Это архивные материалы из прошлых проектов</p>
+        </a>
+        <a class="contact-item" href="https://github.com/Saartr/mihmih.pro" target="_blank" rel="noopener">
+          <span>GITHUB</span>
+          <p>Использую для pet-проектов</p>
+        </a>
+        <a class="contact-item" href="https://spb.hh.ru/resume/c5346b50ff05c0d59c0039ed1f4d75697a5553" target="_blank" rel="noopener">
+          <span>HEADHUNTER CV</span>
+          <p>Пусть будет тк оно может быть актуальнее, чем версия этого сайта</p>
+        </a>
+      </div>
+
+      <footer class="footer-note">© Скворцов Михаил, 2026</footer>
+    </section>
   </main>
 
-  <aside class="side-meta">
-    <span data-side-company-text>Т1 · НОТА,</span>
-    <span data-side-years-text>2023 — наст.</span>
-    <a href="#top">наверх ↑</a>
-  </aside>
+  <nav class="side-menu" aria-label="Навигация по странице">
+    <div class="side-menu-links">
+      <a class="side-menu-link is-active" href="#experience" data-menu-link="experience">Опыт</a>
+      <a class="side-menu-link" href="#projects" data-menu-link="projects">Проекты</a>
+      <a class="side-menu-link" href="#about" data-menu-link="about">Обо мне</a>
+      <a class="side-menu-link" href="#contacts" data-menu-link="contacts">Контакты</a>
+    </div>
+    <a class="side-menu-top" href="#top">наверх ↑</a>
+  </nav>
 
   <div class="lightbox" data-lightbox aria-hidden="true">
     <button class="lightbox-close" type="button" data-close aria-label="Закрыть">×</button>
@@ -182,4 +405,3 @@
   <div class="cursor-dot" data-cursor></div>
 </body>
 </html>
-
