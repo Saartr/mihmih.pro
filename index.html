@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Михаил Скворцов</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <script>document.documentElement.classList.add('is-first-screen-loading');</script>
   <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -33,7 +38,10 @@
       </div>
       <div class="hero-dragger">
         <div class="hero-year" aria-label="2026">
+          <img class="hero-year-label" src="assets/hero-year-label.svg" width="36" height="8" alt="">
           <span class="hero-year-tag"><span class="hero-year-text">2026</span></span>
+          <img class="hero-year-selection" src="assets/hero-year-selection.svg" width="63" height="45" alt="">
+          <img class="hero-ready-to-dev" src="assets/hero-ready-to-dev.svg" width="16" height="16" alt="">
         </div>
         <div class="hero-pointer" aria-hidden="true">
           <span class="hero-pointer-shape">
@@ -179,14 +187,10 @@
         <p>HRTech-платформа для автоматизации подбора персонала и управления рекрутинговыми процессами. Продукт помогает HR-командам и рекрутерам вести кандидатов по воронке, работать с вакансиями, согласованиями, коммуникациями и аналитикой в едином интерфейсе.</p>
       </article>
 
-      <div class="media union-main-case">
-        <img loading="lazy" src="assets/union-main-new.png" width="1920" height="1257" alt="НОТА Юнион главный экран">
-      </div>
-      <div class="media-grid union-previews">
-        <img loading="lazy" src="assets/union-preview-1.png" width="1920" height="1080" alt="НОТА Юнион экран 1">
-        <img loading="lazy" src="assets/union-preview-2.png" width="1920" height="1080" alt="НОТА Юнион экран 2">
-        <img loading="lazy" src="assets/union-preview-3.png" width="1920" height="1080" alt="НОТА Юнион экран 3">
-        <img loading="lazy" src="assets/union-preview-4.png" width="1920" height="1080" alt="НОТА Юнион экран 4">
+      <div class="media union-main-case union-gallery" data-union-gallery>
+        <img data-union-gallery-image loading="lazy" src="assets/union-main-new.png" width="1920" height="1257" alt="НОТА Юнион главный экран">
+        <button class="union-gallery-button union-gallery-prev" type="button" data-union-gallery-prev aria-label="Предыдущий экран"></button>
+        <button class="union-gallery-button union-gallery-next" type="button" data-union-gallery-next aria-label="Следующий экран"></button>
       </div>
 
       <div class="case-text case-workflow">
@@ -436,7 +440,9 @@
 
   <div class="lightbox" data-lightbox aria-hidden="true">
     <button class="lightbox-close" type="button" data-close aria-label="Закрыть">×</button>
+    <button class="lightbox-nav lightbox-prev" type="button" data-lightbox-prev aria-label="Предыдущее изображение"></button>
     <img data-lightbox-image alt="">
+    <button class="lightbox-nav lightbox-next" type="button" data-lightbox-next aria-label="Следующее изображение"></button>
   </div>
   <div class="cursor-dot" data-cursor></div>
 </body>
