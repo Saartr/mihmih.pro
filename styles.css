@@ -23,6 +23,7 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   min-width: 320px;
   color: var(--fg);
@@ -1448,6 +1449,10 @@ h3 {
 }
 
 .side-menu-top {
+  position: fixed;
+  left: calc(50% + 384px);
+  bottom: 56px;
+  width: 82px;
   color: var(--dim);
   text-transform: uppercase;
   opacity: 0;
