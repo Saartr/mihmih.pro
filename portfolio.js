@@ -1,4 +1,5 @@
 (() => {
+  const firstScreenAssets = Array.from(document.querySelectorAll('.hero img'));
   const sideMenu = document.querySelector('.side-menu');
   const menuLinks = Array.from(document.querySelectorAll('[data-menu-link]'));
   const menuSections = menuLinks
@@ -19,6 +20,26 @@
     ));
   const cursor = document.querySelector('[data-cursor]');
   const cursorTargets = document.querySelectorAll('a, button, img, [role="button"]');
+
+  const waitForImage = (image) => {
+    if (image.complete) {
+      return image.decode ? image.decode().catch(() => undefined) : Promise.resolve();
+    }
+
+    return new Promise((resolve) => {
+      image.addEventListener('load', resolve, { once: true });
+      image.addEventListener('error', resolve, { once: true });
+    }).then(() => (image.decode ? image.decode().catch(() => undefined) : undefined));
+  };
+
+  const showFirstScreen = () => {
+    document.documentElement.classList.remove('is-first-screen-loading');
+  };
+
+  Promise.all([
+    ...firstScreenAssets.map(waitForImage),
+    document.fonts?.ready || Promise.resolve(),
+  ]).then(showFirstScreen);
 
   images.forEach((image) => {
     const frame = document.createElement('span');
@@ -54,6 +75,11 @@
   if (cursor && window.matchMedia('(pointer: fine)').matches) {
     let pointerX = -100;
     let pointerY = -100;
+    let pointerRotation = 0;
+
+    const updateCursor = () => {
+      cursor.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0) rotate(${pointerRotation}deg)`;
+    };
 
     document.documentElement.classList.add('has-custom-cursor');
 
@@ -61,7 +87,7 @@
       pointerX = event.clientX;
       pointerY = event.clientY;
       cursor.classList.add('is-visible');
-      cursor.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0)`;
+      updateCursor();
     }, { passive: true });
 
     document.addEventListener('pointerleave', () => {
@@ -69,8 +95,16 @@
     });
 
     cursorTargets.forEach((target) => {
-      target.addEventListener('pointerenter', () => cursor.classList.add('is-active'));
-      target.addEventListener('pointerleave', () => cursor.classList.remove('is-active'));
+      target.addEventListener('pointerenter', () => {
+        pointerRotation = 15;
+        cursor.classList.add('is-active');
+        updateCursor();
+      });
+      target.addEventListener('pointerleave', () => {
+        pointerRotation = 0;
+        cursor.classList.remove('is-active');
+        updateCursor();
+      });
     });
   }
 
@@ -80,7 +114,10 @@
       ? parseFloat(getComputedStyle(sideMenu).getPropertyValue('--side-menu-sticky-top')) || 56
       : 56;
 
-    const active = menuSections
+    const isPageBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+    const active = isPageBottom
+      ? menuSections.at(-1)
+      : menuSections
       .filter(({ section }) => section.getBoundingClientRect().top <= window.innerHeight * 0.45)
       .at(-1) || menuSections[0];
 
@@ -91,6 +128,7 @@
     if (sideMenu && experienceSection) {
       const menuStart = experienceSection.getBoundingClientRect().top + window.scrollY;
       sideMenu.style.setProperty('--side-menu-top', `${Math.round(menuStart)}px`);
+      sideMenu.classList.add('is-ready');
       sideMenu.classList.toggle('is-sticky', window.scrollY >= menuStart - stickyTop);
       if (projectsSection) {
         const projectsStart = projectsSection.getBoundingClientRect().top + window.scrollY;
@@ -164,9 +202,10 @@
   };
 
   const runImageShine = (image) => {
-    const rect = image.getBoundingClientRect();
+    const frame = image.closest('.image-frame') || image;
+    const rect = frame.getBoundingClientRect();
     const shine = document.createElement('span');
-    const styles = getComputedStyle(image);
+    const styles = getComputedStyle(frame);
 
     shine.className = 'image-shine';
     shine.style.left = `${Math.round(rect.left + window.scrollX)}px`;

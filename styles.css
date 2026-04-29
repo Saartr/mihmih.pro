@@ -32,6 +32,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html.is-first-screen-loading .page,
+html.is-first-screen-loading .side-menu,
+html.is-first-screen-loading .cursor-dot {
+  opacity: 0;
+  visibility: hidden;
+}
+
+html.is-first-screen-loading *,
+html.is-first-screen-loading *::before,
+html.is-first-screen-loading *::after {
+  animation-play-state: paused !important;
+}
+
 .cursor-dot {
   position: fixed;
   left: 0;
@@ -43,7 +56,7 @@ body {
   z-index: 2147483647;
   opacity: 0;
   transform: translate(-100px, -100px);
-  transition: background-color 120ms ease, opacity 120ms ease;
+  transition: background-color 120ms ease, color 120ms ease, opacity 120ms ease;
   mix-blend-mode: difference;
   will-change: transform;
 }
@@ -58,7 +71,7 @@ body {
 }
 
 .cursor-dot.is-visible { opacity: 1; }
-.cursor-dot.is-active { color: var(--fg); }
+.cursor-dot.is-active { color: var(--accent); }
 
 a {
   color: inherit;
@@ -82,7 +95,7 @@ img {
 .page {
   width: min(720px, calc(100vw - 48px));
   margin: 0 auto;
-  padding: 80px 0 160px;
+  padding: 80px 0 48px;
   display: flex;
   flex-direction: column;
   gap: 160px;
@@ -420,11 +433,13 @@ h3 {
 }
 
 .section h2 {
+  width: 100%;
   align-self: center;
   color: var(--dim);
   font-size: 17px;
   line-height: 1.3;
   font-weight: 700;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -708,21 +723,33 @@ h3 {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    linear-gradient(
-      100deg,
-      rgba(242, 241, 236, 0.08) 0%,
-      rgba(242, 241, 236, 0.18) 18%,
-      rgba(242, 241, 236, 0.08) 36%
-    ),
-    #151515;
-  background-size: 220% 100%;
+  background: #151515;
   opacity: 0;
-  animation: image-skeleton 1200ms ease-in-out infinite;
 }
 
-.image-loading-frame::before {
+.image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(242, 241, 236, 0.04) 25%,
+    rgba(242, 241, 236, 0.14) 37%,
+    rgba(242, 241, 236, 0.04) 63%
+  );
+  background-size: 400% 100%;
+  opacity: 0;
+}
+
+.image-loading-frame::before,
+.image-loading-frame::after {
   opacity: 1;
+}
+
+.image-loading-frame::after {
+  animation: image-skeleton-shine 1400ms ease infinite;
 }
 
 .image-loaded-frame {
@@ -738,13 +765,13 @@ h3 {
   transition: opacity 180ms ease;
 }
 
-@keyframes image-skeleton {
-  from {
-    background-position: 140% 0;
+@keyframes image-skeleton-shine {
+  0% {
+    background-position: 100% 50%;
   }
 
-  to {
-    background-position: -80% 0;
+  100% {
+    background-position: 0 50%;
   }
 }
 
@@ -878,6 +905,19 @@ h3 {
   font-weight: 300;
 }
 
+.case-workflow strong {
+  font-weight: 500;
+}
+
+.case-workflow ul {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.case-workflow li {
+  padding-left: 1px;
+}
+
 .dion-workfiles {
   width: 100%;
   height: 414px;
@@ -887,7 +927,6 @@ h3 {
 
 .dion-workfiles .image-frame {
   height: 100%;
-  filter: blur(1.5px);
 }
 
 .dion-workfiles img {
@@ -1227,46 +1266,83 @@ h3 {
   object-fit: cover;
 }
 
-.about-games-grid,
+.about-games-block,
 .about-anime-grid {
   width: 720px;
   max-width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
 }
 
-.about-games-grid img,
-.about-games-grid .image-frame {
+.about-games-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 18px;
+  align-items: flex-end;
+}
+
+.about-games-block .case-text {
   width: 100%;
-  aspect-ratio: 1;
+}
+
+.about-games-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 18px;
+  align-items: center;
+}
+
+.about-game-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
   object-fit: cover;
+}
+
+.about-anime-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
 }
 
 .about-pets-grid {
   width: 720px;
   max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 136px);
+  justify-content: space-between;
   gap: 8px;
+  align-items: start;
 }
 
-.about-pets-grid img,
-.about-pets-grid .image-frame {
-  width: 100%;
-  aspect-ratio: 1;
+.about-pet {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+
+.about-pet img,
+.about-pet .image-frame {
+  width: 136px;
+  height: 136px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
-.about-anime-grid {
-  gap: 17px;
+.about-pet figcaption {
+  color: #bfbfbd;
+  font-size: 11px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .about-anime-grid img,
 .about-anime-grid .image-frame {
   width: 100%;
-  height: 402px;
+  height: 170px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .contact-list {
@@ -1419,7 +1495,14 @@ h3 {
   font-weight: 700;
   font-size: 17px;
   line-height: 22px;
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 180ms ease;
+}
+
+.side-menu.is-ready {
+  opacity: 1;
+  visibility: visible;
 }
 
 .side-menu.is-sticky {
@@ -1473,7 +1556,7 @@ h3 {
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 20;
+  z-index: 40;
   display: grid;
   place-items: center;
   padding: 32px;
