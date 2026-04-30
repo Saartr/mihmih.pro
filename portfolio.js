@@ -8,7 +8,7 @@
       section: document.getElementById(link.dataset.menuLink || ''),
     }))
     .filter((item) => item.section);
-  const experienceSection = document.querySelector('.experience-section');
+  const menuStartSection = menuSections[0]?.section || document.querySelector('.experience-section');
   const projectsSection = document.getElementById('projects');
   const projectMetas = Array.from(document.querySelectorAll('.project-side-meta'));
   const lightbox = document.querySelector('[data-lightbox]');
@@ -209,8 +209,8 @@
       link.classList.toggle('is-active', link === active.link);
     });
 
-    if (sideMenu && experienceSection) {
-      const menuStart = experienceSection.getBoundingClientRect().top + window.scrollY;
+    if (sideMenu && menuStartSection) {
+      const menuStart = menuStartSection.getBoundingClientRect().top + window.scrollY;
       sideMenu.style.setProperty('--side-menu-top', `${Math.round(menuStart)}px`);
       sideMenu.classList.add('is-ready');
       sideMenu.classList.toggle('is-sticky', window.scrollY >= menuStart - stickyTop);
