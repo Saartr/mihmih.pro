@@ -846,13 +846,15 @@ h3 {
   }
 }
 
-.dion-copy h3 {
+.dion-copy h3,
+.internship-copy h3 {
   font-size: 17px;
   line-height: 26px;
   font-weight: 500;
 }
 
 .dion-copy p,
+.internship-copy p,
 .case-text {
   color: var(--muted);
   font-size: 17px;
@@ -903,6 +905,21 @@ h3 {
   background: var(--accent);
   color: #000;
   text-decoration-color: transparent;
+}
+
+.internship-gallery {
+  width: 720px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.internship-gallery img,
+.internship-gallery .image-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
 .dion-cards {
