@@ -1,0 +1,53 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Проекты · Михаил Скворцов</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project-access.css">
+  <script src="project-access.js" defer></script>
+</head>
+<body>
+  <main class="access-page">
+    <form class="access-form" autocomplete="off" data-access-form novalidate>
+      <label class="access-label" for="project-code">
+        <span>Код для просмотра.</span>
+        <a href="https://t.me/saartr" target="_blank" rel="noopener">Запросить</a>
+      </label>
+
+      <input
+        class="access-input"
+        id="project-code"
+        name="project-access-code"
+        type="text"
+        inputmode="text"
+        autocomplete="off"
+        autocapitalize="characters"
+        autocorrect="off"
+        spellcheck="false"
+        maxlength="6"
+        aria-label="Код для просмотра проектов"
+        data-access-input
+      >
+
+      <button class="access-code" type="submit" aria-label="Проверить код" data-access-code>
+        <span class="access-cell" data-access-cell></span>
+        <span class="access-cell" data-access-cell></span>
+        <span class="access-cell" data-access-cell></span>
+        <span class="access-cell" data-access-cell></span>
+        <span class="access-cell" data-access-cell></span>
+        <span class="access-cell" data-access-cell></span>
+      </button>
+    </form>
+  </main>
+  <div class="cursor-dot" data-cursor aria-hidden="true"></div>
+</body>
+</html>

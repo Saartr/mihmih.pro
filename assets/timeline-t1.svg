@@ -1,10 +1,10 @@
-<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 87 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Frame 3">
-<rect width="87" height="54" rx="24" fill="var(--fill-0, #232323)"/>
+﻿<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 79 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="t1_logo">
+<rect width="79" height="46" rx="23" fill="var(--fill-0, #232323)"/>
 <g id="logo_t1">
-<path d="M65.3066 20.3721H52.332V23.2866H57.3828V33.5815H60.2557V23.2866H65.3066V20.3721Z" fill="var(--fill-0, white)" fill-opacity="0.4"/>
-<path d="M71 20.3273H68.034V33.5837H71V20.3273Z" fill="var(--fill-0, white)" fill-opacity="0.4"/>
-<path d="M28.9745 24.7906H37.5933V29.2564H28.9745V38H24.6188V29.2094H16V24.7436H24.6188V16H28.9745V24.7906ZM41.949 16V38H46.3048V16H41.949Z" fill="var(--fill-0, white)" fill-opacity="0.4"/>
+<path d="M61.3066 16.3721H48.332V19.2866H53.3828V29.5815H56.2557V19.2866H61.3066V16.3721Z" fill="var(--fill-0, #7A7975)"/>
+<path d="M67 16.3273H64.034V29.5837H67V16.3273Z" fill="var(--fill-0, #7A7975)"/>
+<path d="M24.9745 20.7906H33.5933V25.2564H24.9745V34H20.6188V25.2094H12V20.7436H20.6188V12H24.9745V20.7906ZM37.949 12V34H42.3048V12H37.949Z" fill="var(--fill-0, #7A7975)"/>
 </g>
 </g>
 </svg>

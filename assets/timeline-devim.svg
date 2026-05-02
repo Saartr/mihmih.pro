@@ -1,10 +1,6 @@
-<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 33 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Frame" clip-path="url(#clip0_0_7)">
-<path id="Vector" d="M20.6667 0L32.9035 12.2063V25.9302H6.52672V20.831L5.32975 19.6375H0V0H20.6667ZM6.52477 18.7157L7.44893 19.6375H25.125L26.2662 18.4991V7.26965L25.2875 6.29273H6.52477V18.7157Z" fill="var(--fill-0, white)" fill-opacity="0.5"/>
+﻿<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 64.9035 57.9302" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="devim_logo">
+<rect width="64.9035" height="57.9302" rx="24" fill="var(--fill-0, #232323)"/>
+<path id="Vector" d="M36.6667 16L48.9035 28.2063V41.9302H22.5267V36.831L21.3298 35.6375H16V16H36.6667ZM22.5248 34.7157L23.4489 35.6375H41.125L42.2663 34.4991V23.2696L41.2875 22.2927H22.5248V34.7157Z" fill="var(--fill-0, #7A7975)"/>
 </g>
-<defs>
-<clipPath id="clip0_0_7">
-<rect width="33" height="26" fill="white"/>
-</clipPath>
-</defs>
 </svg>

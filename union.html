@@ -1,0 +1,228 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Юнион — система автоматизации подбора персонала — Михаил Скворцов</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <script>document.documentElement.classList.add('is-first-screen-loading');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260502-53">
+  <script src="portfolio.js?v=20260502-11" defer></script>
+</head>
+<body>
+  <div class="cursor-dot" data-cursor aria-hidden="true"></div>
+
+  <nav class="side-menu" aria-label="Навигация по странице">
+    <div class="side-menu-links">
+      <a class="side-menu-link" href="#problems" data-menu-link="problems">Проблемы</a>
+      <a class="side-menu-link" href="#goal" data-menu-link="goal">Цель</a>
+      <a class="side-menu-link" href="#research" data-menu-link="research">Исследования</a>
+      <a class="side-menu-link" href="#process" data-menu-link="process">Процесс</a>
+      <a class="side-menu-link" href="#results" data-menu-link="results">Результат</a>
+    </div>
+    <a class="side-menu-top" href="#top">наверх ↑</a>
+    <a class="side-menu-back" href="index.html#projects">← Назад</a>
+  </nav>
+
+  <main class="page case-page union-case-page" id="top">
+    <section class="intro hero">
+      <div class="hero-heading hero-heading-case">
+        <h1 class="hero-title">Юнион — cистема автоматизации подбора персонала<span class="hero-caret hero-caret-inline" aria-hidden="true"></span></h1>
+      </div>
+      <div class="case-intro-text union-intro-text">
+        <p>В кейсе рассказываю, как мы подошли к <span>глобальному редизайну продукта</span>: зачем он понадобился, какие этапы прошли и какие решения приняли. Отдельно разбираю версионность макетов, организацию новой дизайн-системы и то, как это помогло команде работать быстрее и согласованнее.</p>
+        <p>ps это короткая выжимка из всей работы, которая была проделана мной и аналитиками</p>
+      </div>
+    </section>
+
+    <div class="union-presentation-video">
+      <video autoplay loop muted playsinline controls preload="metadata" poster="assets/union-case-candidates-old.png">
+        <source src="assets/union-case-presentation.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <section class="section" id="problems">
+      <h2>Основные проблемы</h2>
+      <ul class="case-bullet-list">
+        <li>Интерфейс выглядел устаревшим и уступал конкурентам на HRTech-рынке.</li>
+        <li>Пользователям было сложнее ориентироваться в системе из-за разного дизайна в модулях.</li>
+        <li>Одни и те же действия в разных разделах работали и выглядели по-разному.</li>
+        <li>Из-за несогласованности интерфейса пользователи чаще ошибались и давали негативный фидбек.</li>
+        <li>Разработка новых экранов занимала больше времени из-за отсутствия единых UI-паттернов.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="goal">
+      <h2>Цель</h2>
+      <p class="case-lead">Обновить интерфейс и привести модули к единой дизайн-системе, чтобы улучшить пользовательский опыт, усилить продукт на пресейлах и ускорить разработку новых экранов.</p>
+    </section>
+
+    <section class="section" id="research">
+      <h2>Исследования</h2>
+      <div class="case-process-content union-case-flow">
+        <p class="case-body">Перед началом редизайна я изучил текущий интерфейс, пользовательский фидбек и основные сценарии работы в системе, чтобы понять, где именно продукт теряет в удобстве и восприятии. Отдельно сравнил Юнион (ex TalentForce) с прямыми конкурентами на HRTech-рынке, чтобы определить, какие UX/UI-паттерны уже стали стандартом для систем подбора персонала.</p>
+
+        <figure class="case-media-block">
+          <figcaption>Так выглядел интерфейс, когда я пришел в компанию. Список кандидатов.</figcaption>
+          <div class="union-wide-media union-ratio-candidates project-lightbox-preview">
+            <img loading="lazy" src="assets/union-case-candidates-old.png" alt="Старый интерфейс списка кандидатов в Юнион" width="3840" height="2000" data-lightbox-trigger>
+            <button class="project-overlay-button" type="button">
+              <img class="inline-icon" src="assets/project-icon-zoom.svg" width="24" height="24" alt="">
+              <span>Рассмотреть</span>
+            </button>
+          </div>
+        </figure>
+
+        <div class="case-body union-problem-notes">
+          <p><em>Основные проблемы, которые выявились после всех исследований по списку кандидатов.</em></p>
+          <p><strong>Пространство используется неэффективно:</strong> карточки занимают много места, но показывают мало полезной информации для принятия решения.</p>
+          <p><strong>Сложно быстро оценить кандидата:</strong> в карточке не видно статуса, этапа воронки, релевантности вакансии, последней активности или следующего действия.</p>
+          <p><strong>Нет четкой визуальной иерархии:</strong> имя кандидата, контакты, опыт, место работы и служебная информация конкурируют между собой за внимание.</p>
+          <p><strong>Визуальный стиль выглядит устаревшим:</strong> большое количество границ, заливок и мелких элементов снижает ощущение современного и зрелого продукта.</p>
+        </div>
+
+        <figure class="case-media-block">
+          <figcaption>Один из ключевых экранов продукта — карточка вакансии.</figcaption>
+          <div class="union-wide-media union-ratio-vacancy project-lightbox-preview">
+            <img loading="lazy" src="assets/union-case-vacancy-old.png" alt="Старый интерфейс карточки вакансии в Юнион" width="3621" height="4096" data-lightbox-trigger>
+            <button class="project-overlay-button" type="button">
+              <img class="inline-icon" src="assets/project-icon-zoom.svg" width="24" height="24" alt="">
+              <span>Рассмотреть</span>
+            </button>
+          </div>
+        </figure>
+
+        <p class="case-body">По итогам исследования я собрал презентацию с выявленными UX/UI-проблемами, примерами из текущего интерфейса и предложениями по улучшению ключевых сценариев. В ней были зафиксированы основные зоны роста продукта, аргументы в пользу редизайна и первичный план изменений, который я представил руководству продукта для согласования дальнейшей работы.</p>
+
+        <div class="union-figma-callout">
+          <p>По ссылке полная презентация с различными экранами в новой дизайн-системе</p>
+          <a class="project-button" href="https://www.figma.com/design/Efx5Fni20sAA16Cdkm6J3g/My-portfolio?node-id=103-7493&m=dev" target="_blank" rel="noopener">
+            <img class="inline-icon union-figma-icon" src="assets/union-case-figma.svg" width="11" height="16" alt="">
+            <span>Открыть в Figma</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <h2>Процесс</h2>
+      <div class="case-process-content union-case-flow">
+        <p class="case-body">После презентации результатов исследования и согласования направления с руководством продукта я начал подготовку дизайн-системы для будущего редизайна. На этом этапе был собран единый шаблон для компонентов, определены базовые правила их описания и подготовлены ключевые артефакты: структура библиотеки, принципы именования, состояния компонентов, сетка, типографика, лендинг клиентов для вакансий, цвета и базовые UI-паттерны.</p>
+
+        <div class="union-system-grid" aria-label="Фрагменты дизайн-системы Юнион">
+          <div class="project-lightbox-preview">
+            <img loading="lazy" src="assets/union-case-ds-1.png" alt="Фрагмент дизайн-системы Юнион 1" width="2299" height="604" data-lightbox-trigger>
+            <button class="project-overlay-button" type="button">
+              <img class="inline-icon" src="assets/project-icon-zoom.svg" width="24" height="24" alt="">
+              <span>Рассмотреть</span>
+            </button>
+          </div>
+          <div class="project-lightbox-preview">
+            <img loading="lazy" src="assets/union-case-ds-2.png" alt="Фрагмент дизайн-системы Юнион 2" width="3364" height="1441" data-lightbox-trigger>
+            <button class="project-overlay-button" type="button">
+              <img class="inline-icon" src="assets/project-icon-zoom.svg" width="24" height="24" alt="">
+              <span>Рассмотреть</span>
+            </button>
+          </div>
+          <div class="project-lightbox-preview">
+            <img loading="lazy" src="assets/union-case-ds-3.png" alt="Фрагмент дизайн-системы Юнион 3" width="3385" height="1641" data-lightbox-trigger>
+            <button class="project-overlay-button" type="button">
+              <img class="inline-icon" src="assets/project-icon-zoom.svg" width="24" height="24" alt="">
+              <span>Рассмотреть</span>
+            </button>
+          </div>
+          <div class="project-lightbox-preview">
+            <img loading="lazy" src="assets/union-case-ds-4.png" alt="Фрагмент дизайн-системы Юнион 4" width="1759" height="1882" data-lightbox-trigger>
+            <button class="project-overlay-button" type="button">
+              <img class="inline-icon" src="assets/project-icon-zoom.svg" width="24" height="24" alt="">
+              <span>Рассмотреть</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="case-body">После сборки базовой дизайн-системы мы перешли к редизайну старых модулей системы. Для MVP-версии выбрали ключевые сценарии, которые чаще всего используются рекрутерами: список кандидатов, карточку кандидата, работу с вакансиями, фильтрацию, статусы и основные действия по воронке подбора. Чтобы снизить риски, изменения решили обкатывать не сразу на всех пользователях, а на заранее сформированной фокус-группе из активных пользователей продукта — на их обратной связи мы проверяли новые UX-паттерны, удобство интерфейса и готовность решений к масштабированию на остальные модули.</p>
+
+        <figure class="case-media-block">
+          <figcaption>До и после</figcaption>
+          <div class="union-before-after" data-before-after aria-label="Сравнение интерфейса до и после редизайна">
+            <img class="union-before" loading="lazy" src="assets/union-case-before.png" alt="Интерфейс Юнион до редизайна" width="2449" height="1411">
+            <div class="union-after-mask" data-before-after-mask>
+              <img class="union-after" loading="lazy" src="assets/union-case-after.png" alt="Интерфейс Юнион после редизайна" width="1517" height="1275">
+            </div>
+            <span class="union-before-after-handle" data-before-after-handle aria-hidden="true"></span>
+          </div>
+        </figure>
+
+        <p class="case-body">При редизайне мы пересмотрели структуру ключевых модулей и полностью отказались от отдельной Панели подбора, так как ее функции логичнее было встроить в карточку вакансии. В обновленной карточке вакансии основной фокус сместился на прикрепленных кандидатов: рекрутер мог сразу видеть, кто находится в работе по конкретной вакансии, на каком этапе подбора кандидат находится и какие действия требуют внимания. Дополнительно появился новый блок «Подбор по вакансии», который собирал всю необходимую информацию о кандидате именно в контексте выбранной вакансии и помогал быстрее принимать решения без переходов между разными разделами.</p>
+
+        <div class="union-tech-block">
+          <p class="case-body">Все компоненты из Figma были перенесены на новый фронтенд-стек и собраны в единую UI-библиотеку. Каждый компонент прошел проверку через Storybook: мы оттестировали состояния (помогали тестировщики), варианты использования и поведение, чтобы обеспечить консистентность интерфейса в продукте и ускорить дальнейшую разработку.</p>
+          <div class="union-tech-logos" aria-label="Figma, Storybook и Vue">
+            <img src="assets/union-case-storybook-logo.svg" width="119" height="24" alt="Storybook">
+            <img src="assets/union-case-storybook.png" width="3840" height="2879" alt="Storybook UI" loading="lazy">
+            <img class="union-vue-logo" src="assets/union-case-vue-logo.png" width="38" height="33" alt="Vue.js">
+          </div>
+        </div>
+
+        <p class="case-body">После вывода основных модулей на фокус-группу работа не закончилась: мы продолжили собирать обратную связь, отслеживать проблемные места и дорабатывать интерфейс. Часть изменений была точечной — правки состояний, подписей, отступов, поведения компонентов и отдельных сценариев. Но были и более крупные доработки: уточнение логики модулей, переработка отдельных блоков и адаптация решений под реальные рабочие процессы пользователей.</p>
+
+        <div class="union-wide-media union-ratio-cjm project-lightbox-preview">
+          <img loading="lazy" src="assets/union-case-cjm.png" alt="CJM и доработки интерфейса Юнион" width="1440" height="1024" data-lightbox-trigger>
+          <button class="project-overlay-button" type="button">
+            <img class="inline-icon" src="assets/project-icon-zoom.svg" width="24" height="24" alt="">
+            <span>Рассмотреть</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <h2>Результаты</h2>
+      <div class="case-results">
+        <div class="internship-stats union-results-grid">
+          <div class="internship-stat">
+            <p class="internship-stat-value">Время прохождения основных сценариев <span data-count-percent="-30" data-count-suffix="%">0%</span></p>
+            <p class="internship-stat-label">Сократили время выполнения ключевых сценариев за счёт упрощения структуры модулей, обновления карточек вакансии и кандидата, а также удаления отдельного модуля «Панель подбора» и переноса его функционала.</p>
+          </div>
+          <div class="internship-stat">
+            <p class="internship-stat-value">Time-to-market <span><span data-count-percent="25" data-count-prefix="+" data-count-suffix="%">0%</span><span data-count-static>-</span><span data-count-percent="35" data-count-suffix="%">0%</span></span></p>
+            <p class="internship-stat-label">Команда стала быстрее проходить путь от постановки задачи до релиза благодаря дизайн-системе и готовым Vue-компонентам.</p>
+          </div>
+        </div>
+
+        <div class="union-note">
+          <p>Важно отметить, что этот результат стал возможен не только благодаря моей работе, но и благодаря совместной работе всей команды: продуктовой, дизайн- и frontend-команды.</p>
+        </div>
+
+        <p class="case-body">Также были сделаны версии мобильных компонентов и MVP с минимальным набором функционала для рекрутеров.</p>
+
+        <div class="union-mobile-preview" data-scroll-reveal>
+          <div class="union-mobile-shot union-mobile-shot-first">
+            <img loading="lazy" src="assets/union-case-mobile-1.png" alt="Мобильные компоненты Юнион" width="1339" height="1040">
+          </div>
+          <div class="union-mobile-shot union-mobile-shot-second">
+            <img loading="lazy" src="assets/union-case-mobile-2.png" alt="MVP интерфейс Юнион для рекрутеров" width="680" height="638">
+          </div>
+          <div class="union-mobile-shot union-mobile-shot-third">
+            <img loading="lazy" src="assets/union-case-mobile-3.png" alt="Мобильный экран Юнион" width="680" height="790">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" data-lightbox aria-hidden="true">
+    <button class="lightbox-close" type="button" data-close aria-label="Закрыть">×</button>
+    <button class="lightbox-nav lightbox-prev" type="button" data-lightbox-prev aria-label="Предыдущее изображение"></button>
+    <img data-lightbox-image alt="">
+    <button class="lightbox-nav lightbox-next" type="button" data-lightbox-next aria-label="Следующее изображение"></button>
+  </div>
+</body>
+</html>
