@@ -424,23 +424,51 @@
   let lastScrollY = window.scrollY;
   let lastScrollTime = performance.now();
   let aboutPhotoSlowdownTimer = null;
+  const aboutPhotoBaseSpinDuration = 3.2;
+  const aboutPhotoScrollSpinDelta = 1.15;
+  const aboutPhotoMaxScrollScale = 1.45;
+  let aboutPhotoSpinDuration = aboutPhotoBaseSpinDuration;
+  let lastAppliedAboutPhotoSpinDuration = aboutPhotoBaseSpinDuration;
+  let aboutPhotoScale = 1;
+  let lastAppliedAboutPhotoScale = 1;
+
+  const setAboutPhotoSpinDuration = (duration) => {
+    const roundedDuration = Number(duration.toFixed(2));
+    if (Math.abs(roundedDuration - lastAppliedAboutPhotoSpinDuration) < 0.04) return;
+    aboutSidePhoto.style.setProperty('--about-photo-spin-duration', `${roundedDuration}s`);
+    lastAppliedAboutPhotoSpinDuration = roundedDuration;
+  };
+
+  const setAboutPhotoScale = (scale) => {
+    const roundedScale = Number(scale.toFixed(3));
+    if (Math.abs(roundedScale - lastAppliedAboutPhotoScale) < 0.003) return;
+    aboutSidePhoto.style.setProperty('--about-photo-scroll-scale', roundedScale);
+    lastAppliedAboutPhotoScale = roundedScale;
+  };
 
   const updateAboutPhotoSpin = () => {
     if (!aboutSidePhoto) return;
     const now = performance.now();
     const scrollDelta = Math.abs(window.scrollY - lastScrollY);
     const timeDelta = Math.max(16, now - lastScrollTime);
-    const velocity = Math.min(1, scrollDelta / timeDelta / 2);
-    const duration = 3.2 - velocity * 2.4;
+    const velocity = Math.min(1, scrollDelta / timeDelta / 4);
+    const targetDuration = aboutPhotoBaseSpinDuration - velocity * aboutPhotoScrollSpinDelta;
+    const targetScale = 1 + velocity * (aboutPhotoMaxScrollScale - 1);
 
-    aboutSidePhoto.style.setProperty('--about-photo-spin-duration', `${duration.toFixed(2)}s`);
+    aboutPhotoSpinDuration += (targetDuration - aboutPhotoSpinDuration) * 0.28;
+    aboutPhotoScale += (targetScale - aboutPhotoScale) * 0.3;
+    setAboutPhotoSpinDuration(aboutPhotoSpinDuration);
+    setAboutPhotoScale(aboutPhotoScale);
     lastScrollY = window.scrollY;
     lastScrollTime = now;
 
     window.clearTimeout(aboutPhotoSlowdownTimer);
     aboutPhotoSlowdownTimer = window.setTimeout(() => {
-      aboutSidePhoto.style.setProperty('--about-photo-spin-duration', '3.2s');
-    }, 160);
+      aboutPhotoSpinDuration += (aboutPhotoBaseSpinDuration - aboutPhotoSpinDuration) * 0.5;
+      aboutPhotoScale += (1 - aboutPhotoScale) * 0.7;
+      setAboutPhotoSpinDuration(aboutPhotoSpinDuration);
+      setAboutPhotoScale(aboutPhotoScale);
+    }, 220);
   };
 
   window.addEventListener('scroll', updateSideMenu, { passive: true });

@@ -12,9 +12,9 @@
   <script>document.documentElement.classList.add('is-first-screen-loading');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,500;0,700;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260502-53">
-  <script src="portfolio.js?v=20260502-11" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,500;0,700;0,800;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260502-54">
+  <script src="portfolio.js?v=20260502-15" defer></script>
 </head>
 <body>
   <div class="cursor-dot" data-cursor aria-hidden="true"></div>
@@ -30,7 +30,7 @@
     <a class="side-menu-back" href="index.html#projects">← Назад</a>
   </nav>
 
-  <main class="page case-page" id="top">
+  <main class="page case-page internship-case-page" id="top">
 
     <section class="intro hero">
       <div class="hero-heading hero-heading-case">
@@ -38,7 +38,7 @@
       </div>
       <p class="case-intro-text">Организовал трёхмесячную стажировку для начинающих дизайнеров в НОТА Т1: собрал группу из 10 участников, подготовил структуру интенсива и систему оценки начальных и итоговых навыков стажёров.</p>
       <div class="case-image-block internship-hero-image">
-        <img loading="lazy" src="assets/internship-hero.png" alt="Материалы стажировки дизайнеров в НОТА Т1" width="1536" height="974">
+        <img loading="lazy" src="assets/internship-hero-figma.png" alt="Материалы стажировки дизайнеров в НОТА Т1" width="720" height="414">
       </div>
     </section>
 
@@ -59,44 +59,55 @@
     <section class="section" id="process">
       <h2>Процесс</h2>
       <div class="case-process-content">
-        <p class="case-body">Составил единый опросник для собеседований, чтобы обеспечить равные условия отбора: все кандидаты отвечали на одинаковые вопросы, проходили сопоставимую оценку и получали тестовое задание.</p>
+        <article class="internship-process-card">
+          <span class="internship-process-number" aria-hidden="true">1</span>
+          <p class="case-body">Составил единый опросник для собеседований, чтобы обеспечить равные условия отбора: все кандидаты отвечали на одинаковые вопросы, проходили сопоставимую оценку и получали тестовое задание.</p>
+          <div class="internship-process-media internship-process-media-tall">
+            <img loading="lazy" src="assets/internship-process-1.png" alt="Таблица с вопросами для собеседования" width="1080" height="412">
+          </div>
+        </article>
 
-        <div class="case-image-block">
-          <img loading="lazy" src="assets/internship-1.png" alt="Таблица с вопросами для собеседования" width="720" height="275">
-        </div>
+        <span class="internship-process-dot" aria-hidden="true"></span>
 
-        <p class="case-body">После собеседований, тестовой задачи и оценки кандидатов со стороны дизайн-лидов я сформировал единую таблицу с итоговыми средними баллами и отсортировал участников по результату — от самого высокого к самому низкому. По итогам отбора была определена проходная граница: 10 кандидатов с наивысшими оценками прошли в следующий этап стажировки.</p>
+        <article class="internship-process-card">
+          <span class="internship-process-number" aria-hidden="true">2</span>
+          <p class="case-body">После собеседований, тестовой задачи и оценки кандидатов со стороны дизайн-лидов я сформировал единую таблицу с итоговыми средними баллами и отсортировал участников по результату — от самого высокого к самому низкому. По итогам отбора была определена проходная граница: 10 кандидатов с наивысшими оценками прошли в следующий этап стажировки.</p>
+          <div class="internship-process-media">
+            <img loading="lazy" src="assets/internship-process-2.png" alt="Таблица с баллами кандидатов" width="2155" height="387">
+          </div>
+        </article>
 
-        <div class="case-image-block">
-          <img loading="lazy" src="assets/internship-2.png" alt="Таблица с баллами кандидатов" width="720" height="275">
-          <div class="case-overlay" aria-hidden="true"></div>
-        </div>
+        <span class="internship-process-dot" aria-hidden="true"></span>
 
-        <p class="case-body">После отбора началось обучение новых стажёров: я составил программу лекций, распределил темы и привлёк сотрудников компании к проведению отдельных занятий. Каждая теоретическая часть закреплялась практическим заданием, по которому стажёры получали оценку и обратную связь.</p>
-
-        <div class="case-image-block project-lightbox-preview">
-          <img loading="lazy" src="assets/internship-3.png" alt="Программа лекций стажировки" width="720" height="275" data-lightbox-trigger>
+        <article class="internship-process-card project-lightbox-preview">
+          <span class="internship-process-number" aria-hidden="true">3</span>
+          <p class="case-body">Началось обучение новых стажёров: я составил программу лекций, распределил темы и привлёк сотрудников компании к проведению отдельных занятий. Каждая теоретическая часть закреплялась практическим заданием, по которому стажёры получали оценку и обратную связь.</p>
+          <div class="internship-process-media">
+            <img loading="lazy" src="assets/internship-process-3.png" alt="Программа лекций стажировки" width="1080" height="678" data-lightbox-trigger>
+          </div>
           <div class="case-overlay" aria-hidden="true">
             <button class="case-image-action" type="button">
               <img class="inline-icon" src="assets/project-icon-zoom.svg" width="24" height="24" alt="">
               <span>Рассмотреть</span>
             </button>
           </div>
-        </div>
+        </article>
 
-        <p class="case-body">В результате я собрал единую таблицу со всеми оценками, динамикой и итоговыми результатами стажёров. На тот момент в компании была высокая потребность в новых кадрах, поэтому по итогам программы все участники стажировки были успешно трудоустроены.</p>
+        <span class="internship-process-dot" aria-hidden="true"></span>
 
-        <p class="case-body">План и выполнение лекционной части</p>
-
-        <div class="case-image-block project-lightbox-preview">
-          <img loading="lazy" src="assets/internship-4.png" alt="Итоговая таблица оценки стажёров" width="720" height="275" data-lightbox-trigger>
+        <article class="internship-process-card project-lightbox-preview">
+          <span class="internship-process-number" aria-hidden="true">4</span>
+          <p class="case-body">В результате я собрал единую таблицу со всеми оценками, динамикой и итоговыми результатами стажёров. На тот момент в компании была высокая потребность в новых кадрах, поэтому по итогам программы все участники стажировки были успешно трудоустроены.</p>
+          <div class="internship-process-media">
+            <img loading="lazy" src="assets/internship-process-4.png" alt="Итоговая таблица оценки стажёров" width="1105" height="399" data-lightbox-trigger>
+          </div>
           <div class="case-overlay" aria-hidden="true">
             <button class="case-image-action" type="button">
               <img class="inline-icon" src="assets/project-icon-zoom.svg" width="24" height="24" alt="">
               <span>Рассмотреть</span>
             </button>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 

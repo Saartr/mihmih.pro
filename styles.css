@@ -2076,6 +2076,7 @@ h3 {
 
 .about-side-photo {
   --about-photo-spin-duration: 3.2s;
+  --about-photo-scroll-scale: 1;
   position: sticky;
   top: 70px;
   align-self: flex-start;
@@ -2092,6 +2093,8 @@ h3 {
   object-fit: contain;
   transform-origin: center;
   animation: about-photo-rotate var(--about-photo-spin-duration) ease-in-out infinite alternate;
+  transition: scale 180ms ease-out;
+  scale: var(--about-photo-scroll-scale);
 }
 
 @keyframes about-photo-rotate {
@@ -2522,6 +2525,19 @@ h3 {
   gap: 80px;
 }
 
+.internship-case-page {
+  overflow-x: visible;
+  padding-top: 71px;
+}
+
+.internship-case-page .intro {
+  gap: 24px;
+}
+
+.internship-case-page .hero {
+  padding-top: 0;
+}
+
 .hero-heading-case {
   display: block;
   width: auto;
@@ -2627,6 +2643,120 @@ h3 {
 
 .internship-hero-image img {
   object-position: top center;
+}
+
+.internship-case-page .case-process-content {
+  align-items: center;
+  gap: 64px;
+}
+
+.internship-process-card {
+  position: relative;
+  width: min(1080px, calc(100vw - 48px));
+  height: 431px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  overflow: hidden;
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--surface-800);
+}
+
+.internship-process-card .case-body {
+  position: relative;
+  z-index: 2;
+  width: 720px;
+  max-width: 100%;
+  font-weight: 500;
+}
+
+.internship-process-number {
+  position: absolute;
+  left: clamp(24px, 10.37vw, 112px);
+  top: 74px;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.24);
+  font-size: 208px;
+  line-height: 24px;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.internship-process-card:first-child .internship-process-number {
+  top: 62px;
+}
+
+.internship-process-media {
+  position: relative;
+  z-index: 2;
+  width: 1080px;
+  height: 275px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  background: var(--white);
+}
+
+.internship-process-media-tall {
+  height: 295px;
+}
+
+.internship-process-media img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.internship-process-media .image-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.internship-process-media .image-frame > img {
+  width: 100%;
+  height: 100%;
+}
+
+.internship-process-card:nth-of-type(2) .internship-process-media img {
+  width: 199.54%;
+  margin-left: -51.76%;
+}
+
+.internship-process-card:nth-of-type(3) .internship-process-media img {
+  height: 246.55%;
+  margin-top: -5.92%;
+}
+
+.internship-process-card:nth-of-type(4) .internship-process-media img {
+  width: 102.31%;
+  height: 145.09%;
+  margin-left: -5.28%;
+  margin-top: -17.45%;
+}
+
+.internship-process-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: var(--text-soft);
+}
+
+.internship-process-card.project-lightbox-preview::after {
+  display: none;
+}
+
+.internship-process-card.project-lightbox-preview:hover .case-overlay,
+.internship-process-card.project-lightbox-preview:focus-within .case-overlay {
+  opacity: 1;
+}
+
+.internship-process-card .case-overlay {
+  z-index: 3;
 }
 
 .case-image-block .image-frame {
@@ -3303,4 +3433,59 @@ h3 {
 @media (max-width: 1100px) {
   .side-menu,
   .experience-aside { display: none; }
+
+  .internship-process-card {
+    height: auto;
+    min-height: 431px;
+  }
+}
+
+@media (max-width: 760px) {
+  .internship-case-page .hero-title {
+    font-size: 36px;
+    line-height: 1.08;
+    letter-spacing: 3px;
+  }
+
+  .internship-case-page .case-process-content {
+    gap: 40px;
+  }
+
+  .internship-process-card {
+    width: calc(100vw - 32px);
+    min-height: 0;
+    gap: 24px;
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+
+  .internship-process-card .case-body {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .internship-process-number {
+    left: 20px;
+    top: 64px;
+    font-size: 150px;
+  }
+
+  .internship-process-card:first-child .internship-process-number {
+    top: 56px;
+  }
+
+  .internship-process-media,
+  .internship-process-media-tall {
+    width: calc(100vw - 32px);
+    height: auto;
+    aspect-ratio: 1080 / 275;
+  }
+
+  .internship-process-media-tall {
+    aspect-ratio: 1080 / 295;
+  }
+
+  .internship-stats {
+    flex-direction: column;
+  }
 }
